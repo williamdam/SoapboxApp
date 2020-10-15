@@ -15,6 +15,7 @@
 		A40C5B672537EA37006CFC86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40C5B652537EA37006CFC86 /* Main.storyboard */; };
 		A40C5B692537EA38006CFC86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40C5B682537EA38006CFC86 /* Assets.xcassets */; };
 		A40C5B6C2537EA38006CFC86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40C5B6A2537EA38006CFC86 /* LaunchScreen.storyboard */; };
+		A41E98732538D693003D46CA /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41E98722538D693003D46CA /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A40C5B682537EA38006CFC86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A40C5B6B2537EA38006CFC86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A40C5B6D2537EA38006CFC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A41E98722538D693003D46CA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 			children = (
 				A40C5B5F2537EA37006CFC86 /* AppDelegate.swift */,
 				A40C5B612537EA37006CFC86 /* SceneDelegate.swift */,
-				306BA7362538D18900A64D98 /* Views */,
-				306BA7352538D17300A64D98 /* Controllers */,
+				A40C5B632537EA37006CFC86 /* ViewController.swift */,
+				A40C5B652537EA37006CFC86 /* Main.storyboard */,
+				A41E98722538D693003D46CA /* UserProfileViewController.swift */,
 				A40C5B682537EA38006CFC86 /* Assets.xcassets */,
 				A40C5B6A2537EA38006CFC86 /* LaunchScreen.storyboard */,
 				A40C5B6D2537EA38006CFC86 /* Info.plist */,
@@ -162,6 +165,7 @@
 			files = (
 				306BA7382538D23F00A64D98 /* LoginViewController.swift in Sources */,
 				A40C5B642537EA37006CFC86 /* ViewController.swift in Sources */,
+				A41E98732538D693003D46CA /* UserProfileViewController.swift in Sources */,
 				A40C5B602537EA37006CFC86 /* AppDelegate.swift in Sources */,
 				A40C5B622537EA37006CFC86 /* SceneDelegate.swift in Sources */,
 			);
