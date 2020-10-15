@@ -19,8 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		306BA7372538D23F00A64D98 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		306BA73A2538D3AA00A64D98 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		306BA7372538D23F00A64D98 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		306BA73A2538D3AA00A64D98 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = ../Auth.storyboard; sourceTree = "<group>"; };
 		A40C5B5C2537EA37006CFC86 /* Soapbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soapbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40C5B5F2537EA37006CFC86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A40C5B612537EA37006CFC86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,22 +43,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		306BA7352538D17300A64D98 /* Controllers */ = {
+		306BA73D2539023300A64D98 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				A40C5B632537EA37006CFC86 /* ViewController.swift */,
-				306BA7372538D23F00A64D98 /* LoginViewController.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		306BA7362538D18900A64D98 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A40C5B652537EA37006CFC86 /* Main.storyboard */,
-				306BA73A2538D3AA00A64D98 /* Auth.storyboard */,
-			);
-			path = Views;
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		A40C5B532537EA37006CFC86 = {
@@ -66,6 +55,7 @@
 			children = (
 				A40C5B5E2537EA37006CFC86 /* Soapbox */,
 				A40C5B5D2537EA37006CFC86 /* Products */,
+				306BA73D2539023300A64D98 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +73,8 @@
 				A40C5B5F2537EA37006CFC86 /* AppDelegate.swift */,
 				A40C5B612537EA37006CFC86 /* SceneDelegate.swift */,
 				A40C5B632537EA37006CFC86 /* ViewController.swift */,
+				306BA7372538D23F00A64D98 /* LoginViewController.swift */,
+				306BA73A2538D3AA00A64D98 /* Auth.storyboard */,
 				A40C5B652537EA37006CFC86 /* Main.storyboard */,
 				A41E98722538D693003D46CA /* UserProfileViewController.swift */,
 				A40C5B682537EA38006CFC86 /* Assets.xcassets */,
