@@ -182,7 +182,6 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="CbX-tW-gpu" firstAttribute="centerX" secondItem="qIT-wb-Uvq" secondAttribute="centerX" id="XkI-g7-iEU"/>
                                             <constraint firstItem="CbX-tW-gpu" firstAttribute="centerX" secondItem="qIT-wb-Uvq" secondAttribute="centerX" id="n8J-Cu-oqv"/>
                                             <constraint firstItem="CbX-tW-gpu" firstAttribute="centerY" secondItem="qIT-wb-Uvq" secondAttribute="centerY" id="tEO-05-zCd"/>
                                         </constraints>
