@@ -16,6 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Me-cV-f0w">
+                                <rect key="frame" x="20" y="138" width="374" height="634"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="7Y5-Vu-GTd">
                                 <rect key="frame" x="20" y="64" width="374" height="54"/>
                                 <subviews>
@@ -71,8 +79,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Y5-Vu-GTd" secondAttribute="trailing" constant="20" id="4Fe-B6-mud"/>
+                            <constraint firstItem="98H-vS-WFE" firstAttribute="top" secondItem="0Me-cV-f0w" secondAttribute="bottom" constant="20" id="9aZ-Ew-e8f"/>
                             <constraint firstItem="7Y5-Vu-GTd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R8y-kt-SKr"/>
                             <constraint firstItem="98H-vS-WFE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XeY-eY-P5d"/>
+                            <constraint firstItem="0Me-cV-f0w" firstAttribute="top" secondItem="7Y5-Vu-GTd" secondAttribute="bottom" constant="20" id="YaK-hP-qYx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Me-cV-f0w" secondAttribute="trailing" constant="20" id="bCF-nA-amY"/>
+                            <constraint firstItem="0Me-cV-f0w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kQg-Yy-fva"/>
                             <constraint firstItem="7Y5-Vu-GTd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="rYG-oT-8lj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="98H-vS-WFE" secondAttribute="trailing" constant="20" id="v9e-9h-sAF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="98H-vS-WFE" secondAttribute="bottom" constant="30" id="xs6-8o-qsd"/>
@@ -81,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-978" y="-210"/>
+            <point key="canvasLocation" x="-978.34821428571422" y="-210.1449275362319"/>
         </scene>
         <!--Account Profile View Controller-->
         <scene sceneID="H0t-WY-po6">
