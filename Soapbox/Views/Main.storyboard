@@ -19,7 +19,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Me-cV-f0w">
                                 <rect key="frame" x="20" y="138" width="374" height="634"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -99,14 +99,14 @@
         <scene sceneID="H0t-WY-po6">
             <objects>
                 <viewController id="IRj-GI-s4Z" customClass="AccountProfileViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VAX-dw-Aiy">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="VAX-dw-Aiy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QHI-p4-9hL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QHI-p4-9hL">
+                                <rect key="frame" x="0.0" y="20" width="414" height="798"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zM-mn-XqF" userLabel="Logo View">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zM-mn-XqF" userLabel="Logo View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="tjk-K1-IU1">
@@ -124,8 +124,8 @@
                                             <constraint firstItem="tjk-K1-IU1" firstAttribute="centerY" secondItem="1zM-mn-XqF" secondAttribute="centerY" id="xku-ab-wKb"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-Yc-Y18" userLabel="Account Profile View">
-                                        <rect key="frame" x="0.0" y="93" width="414" height="725"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-Yc-Y18" userLabel="Account Profile View">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="713"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZk-ZG-bNE">
                                                 <rect key="frame" x="135" y="10" width="144" height="26.5"/>
@@ -238,7 +238,7 @@
                         <viewLayoutGuide key="safeArea" id="x5G-y4-xYx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QHI-p4-9hL" firstAttribute="top" secondItem="x5G-y4-xYx" secondAttribute="top" id="5Oz-pv-gn3"/>
+                            <constraint firstItem="QHI-p4-9hL" firstAttribute="top" secondItem="x5G-y4-xYx" secondAttribute="top" constant="20" id="5Oz-pv-gn3"/>
                             <constraint firstItem="QHI-p4-9hL" firstAttribute="centerY" secondItem="VAX-dw-Aiy" secondAttribute="centerY" id="Z8X-d4-PlQ"/>
                             <constraint firstItem="x5G-y4-xYx" firstAttribute="trailing" secondItem="QHI-p4-9hL" secondAttribute="trailing" id="gcP-nu-NTP"/>
                             <constraint firstItem="x5G-y4-xYx" firstAttribute="bottom" secondItem="QHI-p4-9hL" secondAttribute="bottom" id="n0r-xH-2zF"/>

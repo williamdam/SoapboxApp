@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,17 +13,17 @@
             <objects>
                 <viewController id="R5I-MW-dkD" customClass="LoginViewController" customModule="Soapbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nus-Ou-yhC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Hh-5C-cd4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOQ-Ib-9xS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="272"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="808" height="130.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="P3y-i0-81d">
-                                                <rect key="frame" x="92" y="86" width="300" height="100"/>
+                                                <rect key="frame" x="289" y="15" width="300" height="100"/>
                                                 <color key="tintColor" red="0.425837189" green="0.77365237470000003" blue="0.90198099610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="CBR-mH-FCe"/>
@@ -38,10 +38,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJa-hw-GHW">
-                                        <rect key="frame" x="0.0" y="273" width="414" height="272"/>
+                                        <rect key="frame" x="0.0" y="131.5" width="808" height="130"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-mK-Vuy">
-                                                <rect key="frame" x="37.5" y="89" width="339.5" height="94"/>
+                                                <rect key="frame" x="234.5" y="18" width="339.5" height="94"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ORA-kP-d58">
                                                         <rect key="frame" x="0.0" y="0.0" width="339.5" height="34"/>
@@ -97,10 +97,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5T-73-f1x">
-                                        <rect key="frame" x="0.0" y="546" width="414" height="272"/>
+                                        <rect key="frame" x="0.0" y="262.5" width="808" height="130.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="7ph-F9-bvV">
-                                                <rect key="frame" x="109.5" y="10" width="195" height="40"/>
+                                                <rect key="frame" x="306.5" y="10" width="195" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bX5-AT-oaf">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
@@ -163,31 +163,30 @@
             <objects>
                 <viewController id="K9K-Of-5lr" customClass="NewUserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Mk-j8-jue">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aym-N8-LV0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aym-N8-LV0">
+                                <rect key="frame" x="44" y="20" width="808" height="373"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIT-wb-Uvq" userLabel="LogoView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                                        <rect key="frame" x="197" y="0.0" width="414" height="95"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="CbX-tW-gpu">
-                                                <rect key="frame" x="100" y="46" width="263" height="80"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="75n-aH-roG">
+                                                <rect key="frame" x="-373" y="7.5" width="1200" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="DrR-Vv-gOm"/>
-                                                    <constraint firstAttribute="height" constant="100" id="dDN-iL-B4b"/>
+                                                    <constraint firstAttribute="height" constant="80" id="S4J-Ad-0dI"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="CbX-tW-gpu" firstAttribute="centerX" secondItem="qIT-wb-Uvq" secondAttribute="centerX" id="n8J-Cu-oqv"/>
-                                            <constraint firstItem="CbX-tW-gpu" firstAttribute="centerY" secondItem="qIT-wb-Uvq" secondAttribute="centerY" id="tEO-05-zCd"/>
+                                            <constraint firstItem="75n-aH-roG" firstAttribute="centerX" secondItem="qIT-wb-Uvq" secondAttribute="centerX" constant="20" id="W4p-2J-opk"/>
+                                            <constraint firstItem="75n-aH-roG" firstAttribute="centerY" secondItem="qIT-wb-Uvq" secondAttribute="centerY" id="Zcq-dE-zgs"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npa-aW-ErP" userLabel="AccountView">
-                                        <rect key="frame" x="0.0" y="211" width="414" height="607"/>
+                                        <rect key="frame" x="197" y="95" width="414" height="278"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Y7-XV-nb3">
                                                 <rect key="frame" x="149.5" y="258" width="148" height="40"/>
@@ -286,7 +285,7 @@
                         <constraints>
                             <constraint firstItem="aym-N8-LV0" firstAttribute="bottom" secondItem="tpF-qn-QQ0" secondAttribute="bottom" id="AAK-YD-kio"/>
                             <constraint firstItem="aym-N8-LV0" firstAttribute="leading" secondItem="tpF-qn-QQ0" secondAttribute="leading" id="LM5-Yj-Io4"/>
-                            <constraint firstItem="aym-N8-LV0" firstAttribute="top" secondItem="tpF-qn-QQ0" secondAttribute="top" id="etf-Ua-ckR"/>
+                            <constraint firstItem="aym-N8-LV0" firstAttribute="top" secondItem="tpF-qn-QQ0" secondAttribute="top" constant="20" id="etf-Ua-ckR"/>
                             <constraint firstItem="aym-N8-LV0" firstAttribute="trailing" secondItem="tpF-qn-QQ0" secondAttribute="trailing" id="hl1-Yz-NuZ"/>
                         </constraints>
                     </view>
