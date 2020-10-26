@@ -13,6 +13,10 @@
 		A4B1E27925473C5100745A88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B1E27725473C5100745A88 /* Main.storyboard */; };
 		A4B1E27B25473C5300745A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B1E27A25473C5300745A88 /* Assets.xcassets */; };
 		A4B1E27E25473C5300745A88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B1E27C25473C5300745A88 /* LaunchScreen.storyboard */; };
+		A4B1E28925473F9300745A88 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E28825473F9300745A88 /* SignupViewController.swift */; };
+		A4B1E28D25473FC000745A88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E28C25473FC000745A88 /* LoginViewController.swift */; };
+		A4B1E29025473FDE00745A88 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E28F25473FDE00745A88 /* UserProfileViewController.swift */; };
+		A4B1E2932547400600745A88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E2922547400600745A88 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A4B1E27A25473C5300745A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4B1E27D25473C5300745A88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4B1E27F25473C5300745A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4B1E28825473F9300745A88 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A4B1E28C25473FC000745A88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A4B1E28F25473FDE00745A88 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		A4B1E2922547400600745A88 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		A4B1E27025473C5100745A88 /* SoapboxNew */ = {
 			isa = PBXGroup;
 			children = (
+				A4B1E28625473EE400745A88 /* View */,
 				A4B1E27125473C5100745A88 /* AppDelegate.swift */,
 				A4B1E27325473C5100745A88 /* SceneDelegate.swift */,
-				A4B1E27525473C5100745A88 /* ViewController.swift */,
 				A4B1E27725473C5100745A88 /* Main.storyboard */,
 				A4B1E27A25473C5300745A88 /* Assets.xcassets */,
 				A4B1E27C25473C5300745A88 /* LaunchScreen.storyboard */,
 				A4B1E27F25473C5300745A88 /* Info.plist */,
 			);
 			path = SoapboxNew;
+			sourceTree = "<group>";
+		};
+		A4B1E28625473EE400745A88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4B1E28825473F9300745A88 /* SignupViewController.swift */,
+				A4B1E27525473C5100745A88 /* ViewController.swift */,
+				A4B1E28C25473FC000745A88 /* LoginViewController.swift */,
+				A4B1E28F25473FDE00745A88 /* UserProfileViewController.swift */,
+				A4B1E2922547400600745A88 /* HomeViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B1E27625473C5100745A88 /* ViewController.swift in Sources */,
+				A4B1E29025473FDE00745A88 /* UserProfileViewController.swift in Sources */,
 				A4B1E27225473C5100745A88 /* AppDelegate.swift in Sources */,
+				A4B1E28925473F9300745A88 /* SignupViewController.swift in Sources */,
+				A4B1E28D25473FC000745A88 /* LoginViewController.swift in Sources */,
+				A4B1E2932547400600745A88 /* HomeViewController.swift in Sources */,
 				A4B1E27425473C5100745A88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
