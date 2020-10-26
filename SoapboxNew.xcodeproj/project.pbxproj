@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30A9DC59254759CE000CA0CA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A9DC58254759CE000CA0CA /* Utilities.swift */; };
+		87B1981723ECC2C5B6020631 /* Pods_SoapboxNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0537CE5C8EFD5DCB3AA4228A /* Pods_SoapboxNew.framework */; };
 		A4B1E27225473C5100745A88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E27125473C5100745A88 /* AppDelegate.swift */; };
 		A4B1E27425473C5100745A88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E27325473C5100745A88 /* SceneDelegate.swift */; };
 		A4B1E27625473C5100745A88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E27525473C5100745A88 /* ViewController.swift */; };
@@ -18,10 +19,14 @@
 		A4B1E28D25473FC000745A88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E28C25473FC000745A88 /* LoginViewController.swift */; };
 		A4B1E29025473FDE00745A88 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E28F25473FDE00745A88 /* UserProfileViewController.swift */; };
 		A4B1E2932547400600745A88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E2922547400600745A88 /* HomeViewController.swift */; };
+		A4E56D0425476E7A005C9EE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4E56D0325476E7A005C9EE6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0537CE5C8EFD5DCB3AA4228A /* Pods_SoapboxNew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoapboxNew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A9DC58254759CE000CA0CA /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		63DC353315EB25A2FF3C83C5 /* Pods-SoapboxNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapboxNew.release.xcconfig"; path = "Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew.release.xcconfig"; sourceTree = "<group>"; };
+		7C205D0730C8AD398E9D9EDC /* Pods-SoapboxNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapboxNew.debug.xcconfig"; path = "Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew.debug.xcconfig"; sourceTree = "<group>"; };
 		A4B1E26E25473C5100745A88 /* SoapboxNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapboxNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B1E27125473C5100745A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B1E27325473C5100745A88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		A4B1E28C25473FC000745A88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A4B1E28F25473FDE00745A88 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		A4B1E2922547400600745A88 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A4E56D0325476E7A005C9EE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B1981723ECC2C5B6020631 /* Pods_SoapboxNew.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,11 +62,31 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		49082C5BF448267E2B12949A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C205D0730C8AD398E9D9EDC /* Pods-SoapboxNew.debug.xcconfig */,
+				63DC353315EB25A2FF3C83C5 /* Pods-SoapboxNew.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5404300A8E90EE5026E5AFBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0537CE5C8EFD5DCB3AA4228A /* Pods_SoapboxNew.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4B1E26525473C5100745A88 = {
 			isa = PBXGroup;
 			children = (
 				A4B1E27025473C5100745A88 /* SoapboxNew */,
 				A4B1E26F25473C5100745A88 /* Products */,
+				49082C5BF448267E2B12949A /* Pods */,
+				5404300A8E90EE5026E5AFBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +101,7 @@
 		A4B1E27025473C5100745A88 /* SoapboxNew */ = {
 			isa = PBXGroup;
 			children = (
+				A4E56D0325476E7A005C9EE6 /* GoogleService-Info.plist */,
 				30A9DC57254759B8000CA0CA /* Helpers */,
 				A4B1E28625473EE400745A88 /* View */,
 				A4B1E27125473C5100745A88 /* AppDelegate.swift */,
@@ -105,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4B1E28225473C5300745A88 /* Build configuration list for PBXNativeTarget "SoapboxNew" */;
 			buildPhases = (
+				098CDAE28488F04509DE7B30 /* [CP] Check Pods Manifest.lock */,
 				A4B1E26A25473C5100745A88 /* Sources */,
 				A4B1E26B25473C5100745A88 /* Frameworks */,
 				A4B1E26C25473C5100745A88 /* Resources */,
+				A0678767A7525127F4C6FFB5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,12 +186,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B1E27E25473C5300745A88 /* LaunchScreen.storyboard in Resources */,
+				A4E56D0425476E7A005C9EE6 /* GoogleService-Info.plist in Resources */,
 				A4B1E27B25473C5300745A88 /* Assets.xcassets in Resources */,
 				A4B1E27925473C5100745A88 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		098CDAE28488F04509DE7B30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoapboxNew-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0678767A7525127F4C6FFB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A4B1E26A25473C5100745A88 /* Sources */ = {
@@ -319,6 +392,7 @@
 		};
 		A4B1E28325473C5300745A88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C205D0730C8AD398E9D9EDC /* Pods-SoapboxNew.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -338,6 +412,7 @@
 		};
 		A4B1E28425473C5300745A88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63DC353315EB25A2FF3C83C5 /* Pods-SoapboxNew.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

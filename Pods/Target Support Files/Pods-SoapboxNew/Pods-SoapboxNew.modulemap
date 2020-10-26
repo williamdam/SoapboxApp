@@ -1,0 +1,6 @@
+framework module Pods_SoapboxNew {
+  umbrella header "Pods-SoapboxNew-umbrella.h"
+
+  export *
+  module * { export * }
+}
