@@ -180,6 +180,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="MAP-OR-1jY" eventType="touchUpInside" id="GqO-qE-js8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -198,10 +201,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYM-fy-H2I"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="06A-9g-4MA" id="cIx-1e-DKe"/>
+                        <outlet property="firstNameTextField" destination="QvI-3b-3El" id="wps-pu-4l9"/>
+                        <outlet property="lastNameTextField" destination="fNY-yG-HK2" id="PXK-pr-ADl"/>
+                        <outlet property="passwordTextField" destination="Qmf-S4-cqk" id="tan-4e-Qv8"/>
+                        <outlet property="signUpButton" destination="Kdz-ln-hUh" id="CXA-b1-25l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vb-oj-qM0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-274"/>
+            <point key="canvasLocation" x="1906" y="-285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CCb-4P-Y5Z">
