@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30A9DC59254759CE000CA0CA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A9DC58254759CE000CA0CA /* Utilities.swift */; };
 		A4B1E27225473C5100745A88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E27125473C5100745A88 /* AppDelegate.swift */; };
 		A4B1E27425473C5100745A88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E27325473C5100745A88 /* SceneDelegate.swift */; };
 		A4B1E27625473C5100745A88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1E27525473C5100745A88 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30A9DC58254759CE000CA0CA /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A4B1E26E25473C5100745A88 /* SoapboxNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapboxNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B1E27125473C5100745A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B1E27325473C5100745A88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30A9DC57254759B8000CA0CA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30A9DC58254759CE000CA0CA /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A4B1E26525473C5100745A88 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		A4B1E27025473C5100745A88 /* SoapboxNew */ = {
 			isa = PBXGroup;
 			children = (
+				30A9DC57254759B8000CA0CA /* Helpers */,
 				A4B1E28625473EE400745A88 /* View */,
 				A4B1E27125473C5100745A88 /* AppDelegate.swift */,
 				A4B1E27325473C5100745A88 /* SceneDelegate.swift */,
@@ -163,6 +174,7 @@
 				A4B1E28925473F9300745A88 /* SignupViewController.swift in Sources */,
 				A4B1E28D25473FC000745A88 /* LoginViewController.swift in Sources */,
 				A4B1E2932547400600745A88 /* HomeViewController.swift in Sources */,
+				30A9DC59254759CE000CA0CA /* Utilities.swift in Sources */,
 				A4B1E27425473C5100745A88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +252,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -295,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
