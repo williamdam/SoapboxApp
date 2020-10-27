@@ -80,6 +80,7 @@ class SignupViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
+            // Create Firebase user login
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
                 // Check for errors
@@ -90,7 +91,7 @@ class SignupViewController: UIViewController {
                 }
                 else {
                     
-                    // Create user
+                    // Create user profile in Firestore database
                     let db = Firestore.firestore()
                     db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "email":email, "uid": result!.user.uid]) { (error) in
                         
