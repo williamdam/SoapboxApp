@@ -108,7 +108,6 @@
                                         </state>
                                         <connections>
                                             <action selector="LoginButtonPressed:" destination="h6B-2e-br7" eventType="touchUpInside" id="NGK-zs-UEI"/>
-                                            <action selector="LoginPressed:" destination="h6B-2e-br7" eventType="touchUpInside" id="wyK-ra-Ws3"/>
                                         </connections>
                                     </button>
                                 </subviews>
