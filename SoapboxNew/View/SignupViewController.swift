@@ -22,6 +22,8 @@ class SignupViewController: UIViewController {
     
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,6 +31,9 @@ class SignupViewController: UIViewController {
     }
     
     func setUpElements(){
+        
+        //hide error label
+        errorLabel.alpha = 0;
         //style text fields
         Utilities.styleFilledButton(signUpButton)
     }
@@ -48,11 +53,9 @@ class SignupViewController: UIViewController {
     func validateFields() -> String? {
         
         // Check all fields are filled in
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please fill in all fields."
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill in all fields"
         }
         
         // Check password is secure
@@ -68,11 +71,10 @@ class SignupViewController: UIViewController {
         if error != nil {
             
             // Alert field verification fail
-            showError("There was an error!")
+            showError(error!)
         }
-        
-        // Create User
         else {
+            // Create User
             
             // Create cleaned versions of data
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -98,6 +100,9 @@ class SignupViewController: UIViewController {
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data.")
+                        }else{
+                            // Go to Home Screen
+                            self.transitionToHome()
                         }
                     }
                 }
@@ -105,14 +110,12 @@ class SignupViewController: UIViewController {
         }
         
         
-        // Go to Home Screen
-        self.transitionToHome()
-        
     }
     
     func showError(_ message: String) {
-        // errorLabel.text = message
-        print(message)
+        errorLabel.alpha = 1
+        errorLabel.text = message
+        
     }
     
     func transitionToHome() {

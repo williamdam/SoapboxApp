@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cjh-rL-EaY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xrb-yj-9v0">
-                                <rect key="frame" x="40" y="84" width="334" height="170"/>
+                                <rect key="frame" x="40" y="128" width="334" height="210.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r83-U2-8Jf">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -106,6 +106,12 @@
                                             <action selector="LoginButtonPressed:" destination="h6B-2e-br7" eventType="touchUpInside" id="NGK-zs-UEI"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NK-eW-X2R">
+                                        <rect key="frame" x="0.0" y="190" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="X27-79-VPW" firstAttribute="height" secondItem="r83-U2-8Jf" secondAttribute="height" id="bg3-EF-egC"/>
@@ -121,8 +127,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fx5-dy-wZG"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="r83-U2-8Jf" id="0x6-O2-UKS"/>
+                        <outlet property="errorLabel" destination="5NK-eW-X2R" id="KEZ-qm-R8M"/>
                         <outlet property="loginButton" destination="LVC-p6-yQg" id="sJ0-S2-wp0"/>
                         <outlet property="passwordTextField" destination="X27-79-VPW" id="9RC-4q-y2Y"/>
                     </connections>
@@ -195,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nrb-CX-Cfh">
-                                <rect key="frame" x="40" y="84" width="334" height="290"/>
+                                <rect key="frame" x="40" y="128" width="334" height="330.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QvI-3b-3El">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -234,6 +242,12 @@
                                             <action selector="signUpButtonPressed:" destination="MAP-OR-1jY" eventType="touchUpInside" id="GqO-qE-js8"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAb-iw-bno">
+                                        <rect key="frame" x="0.0" y="310" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="06A-9g-4MA" firstAttribute="height" secondItem="QvI-3b-3El" secondAttribute="height" id="LDZ-7u-gmL"/>
@@ -251,8 +265,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYM-fy-H2I"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="06A-9g-4MA" id="cIx-1e-DKe"/>
+                        <outlet property="errorLabel" destination="HAb-iw-bno" id="vI5-Eg-qFP"/>
                         <outlet property="firstNameTextField" destination="QvI-3b-3El" id="wps-pu-4l9"/>
                         <outlet property="lastNameTextField" destination="fNY-yG-HK2" id="PXK-pr-ADl"/>
                         <outlet property="passwordTextField" destination="Qmf-S4-cqk" id="tan-4e-Qv8"/>
@@ -261,14 +278,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vb-oj-qM0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="-285"/>
+            <point key="canvasLocation" x="1905.7971014492755" y="-285.26785714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CCb-4P-Y5Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Cjh-rL-EaY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cjh-rL-EaY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3T8-xc-fvR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -287,6 +305,9 @@
         <image name="soapbox-logo" width="1200" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

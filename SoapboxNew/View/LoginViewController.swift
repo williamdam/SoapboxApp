@@ -18,6 +18,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var loginButton: UIButton!
+    
+    
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,18 +30,16 @@ class LoginViewController: UIViewController {
     }
     
     func setUpElements(){
+        errorLabel.alpha = 0
         Utilities.styleFilledButton(loginButton)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showError(_ message: String) {
+        errorLabel.alpha = 1
+        errorLabel.text = message
+        
     }
-    */
+    
 
     
     @IBAction func LoginButtonPressed(_ sender: UIButton) {
@@ -52,8 +54,8 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             
             if error != nil {
-                // Couldn't sign in
-                print(error!.localizedDescription)
+                
+                self.showError("The email and/or password does not match our records. Please try again.")
             }
             else {
                 let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
