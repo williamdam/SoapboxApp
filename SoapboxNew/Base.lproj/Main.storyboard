@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +139,31 @@
             </objects>
             <point key="canvasLocation" x="1855" y="403"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="5td-fW-NOv">
+            <objects>
+                <viewController title="Profile View Controller" id="eKA-Jp-x9A" customClass="ProfileViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x1q-Ro-bZn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="L8h-Dc-xVd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="hVZ-v0-5wb">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="4xZ-Uk-1EX">
+                            <connections>
+                                <action selector="LogOutButtonPressed:" destination="eKA-Jp-x9A" id="oBb-7g-Gys"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDF-h5-GqC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3552" y="-187"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="ssu-u8-SfI">
             <objects>
@@ -170,6 +195,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-y0-kQR" userLabel="User Profile button">
                                         <rect key="frame" x="338" y="13.5" width="36" height="33.5"/>
                                         <state key="normal" backgroundImage="person" catalog="system"/>
+                                        <connections>
+                                            <segue destination="eKA-Jp-x9A" kind="show" id="A5Z-KO-vfo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -285,6 +313,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cjh-rL-EaY" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3T8-xc-fvR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

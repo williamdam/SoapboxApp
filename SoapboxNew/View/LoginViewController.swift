@@ -58,9 +58,9 @@ class LoginViewController: UIViewController {
                 self.showError("The email and/or password does not match our records. Please try again.")
             }
             else {
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
+                let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController)as! HomeViewController
+                let navigationController = UINavigationController (rootViewController: homeViewController)
+                self.present(navigationController, animated: false, completion: nil)
             }
         }
         

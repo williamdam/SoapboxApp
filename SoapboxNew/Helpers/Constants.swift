@@ -13,6 +13,7 @@ struct Constants {
         
         // Static allows access without needing to instantiate structure
         static let homeViewController = "HomeVC"
+        static let welcomeViewController = "WelcomeVC"
         
     }
     
