@@ -230,11 +230,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nrb-CX-Cfh">
-                                <rect key="frame" x="40" y="128" width="334" height="330.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nrb-CX-Cfh" userLabel="Main Stack View">
+                                <rect key="frame" x="40" y="208" width="334" height="380.5"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lm3-aV-ItK">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkl-QU-M3c">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
+                                                <state key="normal" title="Tap to Change"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QvI-3b-3El">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="50" width="334" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="lMv-1T-06h"/>
                                         </constraints>
@@ -242,22 +251,22 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNY-yG-HK2">
-                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="110" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06A-9g-4MA">
-                                        <rect key="frame" x="0.0" y="120" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="170" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qmf-S4-cqk">
-                                        <rect key="frame" x="0.0" y="180" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="230" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdz-ln-hUh">
-                                        <rect key="frame" x="0.0" y="240" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="290" width="334" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ebK-Jb-NjR" userLabel="height = 50"/>
@@ -271,7 +280,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAb-iw-bno">
-                                        <rect key="frame" x="0.0" y="310" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="360" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -283,13 +292,22 @@
                                     <constraint firstItem="fNY-yG-HK2" firstAttribute="height" secondItem="QvI-3b-3El" secondAttribute="height" id="seT-bC-h28"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank_profile" translatesAutoresizingMaskIntoConstraints="NO" id="KxV-Tg-m5g">
+                                <rect key="frame" x="157" y="98" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="EeW-MP-uhA"/>
+                                    <constraint firstAttribute="height" constant="100" id="Sx4-eb-hos"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fdz-03-Nx8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nrb-CX-Cfh" firstAttribute="top" secondItem="KxV-Tg-m5g" secondAttribute="bottom" constant="10" id="240-qs-z3R"/>
                             <constraint firstItem="fdz-03-Nx8" firstAttribute="trailing" secondItem="nrb-CX-Cfh" secondAttribute="trailing" constant="40" id="9u6-ZQ-6M8"/>
+                            <constraint firstItem="KxV-Tg-m5g" firstAttribute="top" secondItem="fdz-03-Nx8" secondAttribute="top" constant="10" id="Fa5-YE-n6w"/>
                             <constraint firstItem="nrb-CX-Cfh" firstAttribute="leading" secondItem="fdz-03-Nx8" secondAttribute="leading" constant="40" id="SoA-s3-HGY"/>
-                            <constraint firstItem="nrb-CX-Cfh" firstAttribute="top" secondItem="fdz-03-Nx8" secondAttribute="top" constant="40" id="zpa-E7-pHg"/>
+                            <constraint firstItem="KxV-Tg-m5g" firstAttribute="centerX" secondItem="43B-uT-5pd" secondAttribute="centerX" id="tJW-tH-KBw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYM-fy-H2I"/>
@@ -301,7 +319,9 @@
                         <outlet property="firstNameTextField" destination="QvI-3b-3El" id="wps-pu-4l9"/>
                         <outlet property="lastNameTextField" destination="fNY-yG-HK2" id="PXK-pr-ADl"/>
                         <outlet property="passwordTextField" destination="Qmf-S4-cqk" id="tan-4e-Qv8"/>
+                        <outlet property="profileImageView" destination="KxV-Tg-m5g" id="IvN-W9-1j5"/>
                         <outlet property="signUpButton" destination="Kdz-ln-hUh" id="CXA-b1-25l"/>
+                        <outlet property="tapToChangeButton" destination="Zkl-QU-M3c" id="3rn-mL-ag6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vb-oj-qM0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -329,6 +349,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="blank_profile" width="673" height="673"/>
         <image name="location" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="soapbox-logo" width="1200" height="400"/>
