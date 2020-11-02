@@ -12,6 +12,7 @@ import FirebaseFirestore
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -77,7 +78,7 @@ class SignupViewController: UIViewController {
     func validateFields() -> String? {
         
         // Check all fields are filled in
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
             return "Please fill in all fields"
         }
@@ -101,6 +102,7 @@ class SignupViewController: UIViewController {
             // Create User
             
             // Create cleaned versions of data
+            let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -124,7 +126,7 @@ class SignupViewController: UIViewController {
                             
                             // Create user profile in Firestore database
                             let db = Firestore.firestore()
-                            db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "email":email, "photoURL":url!.absoluteString ,"uid": result!.user.uid]) { (error) in
+                            db.collection("users").addDocument(data: ["username":username, "firstname":firstName, "lastname":lastName, "email":email, "photoURL":url!.absoluteString ,"uid": result!.user.uid]) { (error) in
                                 
                                 if error != nil {
                                     // Show error message
