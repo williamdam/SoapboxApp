@@ -12,24 +12,50 @@ import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var errorMessageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Initialize Firestore connection
         let db = Firestore.firestore()
         
-        let docRef = db.collection("users").document("4TZ9mhZiorL7FuG4pJ7y")
-
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
+        // Get Firebase uid
+        let userID = Auth.auth().currentUser!.uid
+        print("User ID: " + userID)
+        
+        // Get data from "users" collection
+        db.collection("users").whereField("uid", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
             } else {
-                print("Document does not exist")
+                for document in querySnapshot!.documents {
+                    
+                    // Print statements for debug
+                    print("\(document.documentID) => \(document.data())")
+                    print(document.get("firstname") ?? "")
+                    print(document.get("lastname") ?? "")
+                    print(document.get("email") ?? "")
+                    
+                    // Set First Name text field
+                    self.firstNameTextField.text = (document.get("firstname") as! String)
+                    
+                    // Set First Name text field
+                    self.lastNameTextField.text = (document.get("lastname") as! String)
+                    
+                    // Set Email text field
+                    self.emailTextField.text = (document.get("email") as! String)
+                }
             }
         }
+        
     }
-    
 
     /*
     // MARK: - Navigation

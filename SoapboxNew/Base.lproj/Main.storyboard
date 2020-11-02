@@ -174,10 +174,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tM5-si-35C">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new password (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tM5-si-35C">
                                         <rect key="frame" x="0.0" y="240" width="334" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zx-dD-on5">
                                         <rect key="frame" x="0.0" y="300" width="334" height="50"/>
@@ -224,6 +224,15 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="eNB-ix-2cK" id="B3b-3X-Xdr"/>
+                        <outlet property="errorMessageLabel" destination="egg-fQ-dyX" id="8SB-yy-Fah"/>
+                        <outlet property="firstNameTextField" destination="hko-fh-rfT" id="F6d-ra-Tzz"/>
+                        <outlet property="lastNameTextField" destination="fQp-6f-eQs" id="SNU-gE-XAe"/>
+                        <outlet property="passwordTextField" destination="tM5-si-35C" id="AmL-zX-FKx"/>
+                        <outlet property="saveChangesButton" destination="3Zx-dD-on5" id="alA-iG-gPG"/>
+                        <outlet property="usernameLabel" destination="6xh-Qg-IdG" id="wtL-2C-c6w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDF-h5-GqC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
