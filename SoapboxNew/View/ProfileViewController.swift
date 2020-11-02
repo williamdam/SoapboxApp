@@ -23,6 +23,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide error label
+        errorMessageLabel.alpha = 0
+        
         // Initialize Firestore connection
         let db = Firestore.firestore()
         
@@ -42,6 +45,9 @@ class ProfileViewController: UIViewController {
                     print(document.get("firstname") ?? "")
                     print(document.get("lastname") ?? "")
                     print(document.get("email") ?? "")
+                    
+                    // Set Username text label
+                    self.usernameLabel.text = ((document.get("username") ?? "") as! String)
                     
                     // Set First Name text field
                     self.firstNameTextField.text = (document.get("firstname") as! String)
@@ -66,13 +72,82 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
+    // Check fields and return nil on success, or error message string
+    func validateFields() -> String? {
+        
+        // Check all fields are filled in
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill in all fields"
+        }
+        
+        return nil
+    }
+    
+    func showError(_ message: String) {
+        errorMessageLabel.alpha = 1
+        errorMessageLabel.text = message
+        
+    }
+    
+    @IBAction func saveChangesButtonPressed(_ sender: UIButton) {
+                
+        if self.validateFields() != nil {
+            let fieldError = validateFields()
+            showError(fieldError!)
+        }
+        else {
+            
+            // Create cleaned versions of data
+            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            // Initialize database
+            let db = Firestore.firestore()
+            
+            // Get Firebase uid
+            let userID = Auth.auth().currentUser!.uid
+            print("User ID: " + userID)
+            
+            // Get data from "users" collection with uid
+            db.collection("users").whereField("uid", isEqualTo: userID).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        let docID = document.documentID
+                        let userDocument = db.collection("users").document(docID)
+                        
+                        userDocument.updateData([
+                            "firstname": firstName,
+                            "lastname": lastName,
+                            "email": email
+                        ]) { err in
+                            if let err = err {
+                                print("Error updating user profile: \(err)")
+                                self.showError("Error updating user profile.")
+                            } else {
+                                print("Profile successfully updated!")
+                                self.showError("Profile successfully updated!")
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        
+    }
+    
     @IBAction func LogOutButtonPressed(_ sender: Any) {
         try! Auth.auth().signOut()
         let welcomeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.welcomeViewController) as? WelcomeViewController
         view.window?.rootViewController = welcomeViewController
         view.window?.makeKeyAndVisible()
     }
-    
     
 }
