@@ -2,13 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cjh-rL-EaY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--Soapbox Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="WelcomeVC" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             <constraint firstItem="Qya-He-Hqb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="uTf-qp-c1W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yxb-qx-WGt"/>
+                    <navigationItem key="navigationItem" title="Soapbox Home" id="yxb-qx-WGt"/>
                     <connections>
                         <outlet property="loginButton" destination="rAM-7M-jMD" id="9yE-8G-cU2"/>
                         <outlet property="signUpButton" destination="gCa-ym-zR0" id="zcj-Nv-xfZ"/>
@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
         </scene>
-        <!--Login View Controller-->
+        <!--User Login-->
         <scene sceneID="oyF-sc-FGC">
             <objects>
                 <viewController id="h6B-2e-br7" customClass="LoginViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,7 +126,7 @@
                             <constraint firstItem="X1r-Q9-tFZ" firstAttribute="trailing" secondItem="Xrb-yj-9v0" secondAttribute="trailing" constant="40" id="dph-Gj-YhL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fx5-dy-wZG"/>
+                    <navigationItem key="navigationItem" title="User Login" id="fx5-dy-wZG"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="r83-U2-8Jf" id="0x6-O2-UKS"/>
@@ -146,11 +146,76 @@
                     <view key="view" contentMode="scaleToFill" id="x1q-Ro-bZn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kdU-wH-UQy">
+                                <rect key="frame" x="40" y="128" width="334" height="410"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xh-Qg-IdG">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="9VJ-lM-XLf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hko-fh-rfT">
+                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Last Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-6f-eQs">
+                                        <rect key="frame" x="0.0" y="120" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-ix-2cK">
+                                        <rect key="frame" x="0.0" y="180" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tM5-si-35C">
+                                        <rect key="frame" x="0.0" y="240" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zx-dD-on5">
+                                        <rect key="frame" x="0.0" y="300" width="334" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hWw-8P-hg9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Save Changes">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egg-fQ-dyX">
+                                        <rect key="frame" x="0.0" y="370" width="334" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eNB-ix-2cK" firstAttribute="height" secondItem="6xh-Qg-IdG" secondAttribute="height" id="HdZ-4y-7PE"/>
+                                    <constraint firstItem="egg-fQ-dyX" firstAttribute="height" secondItem="6xh-Qg-IdG" secondAttribute="height" id="M3D-AM-KuV"/>
+                                    <constraint firstItem="hko-fh-rfT" firstAttribute="height" secondItem="6xh-Qg-IdG" secondAttribute="height" id="YPR-CQ-euC"/>
+                                    <constraint firstItem="fQp-6f-eQs" firstAttribute="height" secondItem="6xh-Qg-IdG" secondAttribute="height" id="h4i-ek-44I"/>
+                                    <constraint firstItem="tM5-si-35C" firstAttribute="height" secondItem="6xh-Qg-IdG" secondAttribute="height" id="lRo-7J-ueU"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="L8h-Dc-xVd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L8h-Dc-xVd" firstAttribute="trailing" secondItem="kdU-wH-UQy" secondAttribute="trailing" constant="40" id="PCG-Zb-QUe"/>
+                            <constraint firstItem="kdU-wH-UQy" firstAttribute="top" secondItem="L8h-Dc-xVd" secondAttribute="top" constant="40" id="rHO-WW-Buf"/>
+                            <constraint firstItem="kdU-wH-UQy" firstAttribute="leading" secondItem="L8h-Dc-xVd" secondAttribute="leading" constant="40" id="zvj-QR-vtH"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="hVZ-v0-5wb">
+                    <navigationItem key="navigationItem" title="User Profile" id="hVZ-v0-5wb">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="4xZ-Uk-1EX">
                             <connections>
                                 <action selector="LogOutButtonPressed:" destination="eKA-Jp-x9A" id="oBb-7g-Gys"/>
@@ -222,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="2623" y="64"/>
         </scene>
-        <!--Signup View Controller-->
+        <!--New User-->
         <scene sceneID="WiC-Uk-nFR">
             <objects>
                 <viewController id="MAP-OR-1jY" customClass="SignupViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
@@ -310,7 +375,7 @@
                             <constraint firstItem="KxV-Tg-m5g" firstAttribute="centerX" secondItem="43B-uT-5pd" secondAttribute="centerX" id="tJW-tH-KBw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kYM-fy-H2I"/>
+                    <navigationItem key="navigationItem" title="New User" id="kYM-fy-H2I"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>

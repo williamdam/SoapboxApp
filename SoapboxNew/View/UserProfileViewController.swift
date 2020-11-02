@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 class UserProfileViewController: UIViewController {
 
@@ -13,6 +16,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
 
@@ -25,5 +29,5 @@ class UserProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
