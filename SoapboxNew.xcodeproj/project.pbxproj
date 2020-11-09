@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		309D77842559BB8700CF56EF /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309D77832559BB8700CF56EF /* ImageService.swift */; };
 		30A9DC59254759CE000CA0CA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A9DC58254759CE000CA0CA /* Utilities.swift */; };
 		30FE9155254CCFFD0035F4EA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE9154254CCFFD0035F4EA /* ProfileViewController.swift */; };
 		87B1981723ECC2C5B6020631 /* Pods_SoapboxNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0537CE5C8EFD5DCB3AA4228A /* Pods_SoapboxNew.framework */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0537CE5C8EFD5DCB3AA4228A /* Pods_SoapboxNew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoapboxNew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		309D77832559BB8700CF56EF /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		30A9DC58254759CE000CA0CA /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		30FE9154254CCFFD0035F4EA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		63DC353315EB25A2FF3C83C5 /* Pods-SoapboxNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapboxNew.release.xcconfig"; path = "Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				30A9DC58254759CE000CA0CA /* Utilities.swift */,
+				309D77832559BB8700CF56EF /* ImageService.swift */,
 				A49012422547909300AC0E5C /* Constants.swift */,
 			);
 			path = Helpers;
@@ -248,6 +251,7 @@
 				A4B1E27225473C5100745A88 /* AppDelegate.swift in Sources */,
 				A4B1E28925473F9300745A88 /* SignupViewController.swift in Sources */,
 				A4B1E28D25473FC000745A88 /* LoginViewController.swift in Sources */,
+				309D77842559BB8700CF56EF /* ImageService.swift in Sources */,
 				A4B1E2932547400600745A88 /* HomeViewController.swift in Sources */,
 				30A9DC59254759CE000CA0CA /* Utilities.swift in Sources */,
 				A4B1E27425473C5100745A88 /* SceneDelegate.swift in Sources */,

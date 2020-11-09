@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class SignupViewController: UIViewController {
 
@@ -40,7 +41,7 @@ class SignupViewController: UIViewController {
         //style text fields
         Utilities.styleFilledButton(signUpButton)
         
-        
+        //set image details
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(imageTap)

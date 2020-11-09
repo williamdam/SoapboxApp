@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cjh-rL-EaY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -156,8 +156,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank_profile" translatesAutoresizingMaskIntoConstraints="NO" id="7ct-g3-rwX">
+                                <rect key="frame" x="157" y="128" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2LP-fk-HXY"/>
+                                    <constraint firstAttribute="width" constant="100" id="mxb-K5-j32"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kdU-wH-UQy">
-                                <rect key="frame" x="40" y="128" width="334" height="350"/>
+                                <rect key="frame" x="40" y="246" width="334" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xh-Qg-IdG">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -215,8 +222,10 @@
                         <viewLayoutGuide key="safeArea" id="L8h-Dc-xVd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kdU-wH-UQy" firstAttribute="top" secondItem="7ct-g3-rwX" secondAttribute="bottom" constant="18" id="8Sf-CU-3I8"/>
                             <constraint firstItem="L8h-Dc-xVd" firstAttribute="trailing" secondItem="kdU-wH-UQy" secondAttribute="trailing" constant="40" id="PCG-Zb-QUe"/>
-                            <constraint firstItem="kdU-wH-UQy" firstAttribute="top" secondItem="L8h-Dc-xVd" secondAttribute="top" constant="40" id="rHO-WW-Buf"/>
+                            <constraint firstItem="7ct-g3-rwX" firstAttribute="centerX" secondItem="x1q-Ro-bZn" secondAttribute="centerX" id="wHh-ML-qVM"/>
+                            <constraint firstItem="7ct-g3-rwX" firstAttribute="top" secondItem="L8h-Dc-xVd" secondAttribute="top" constant="40" id="yVT-P5-kRa"/>
                             <constraint firstItem="kdU-wH-UQy" firstAttribute="leading" secondItem="L8h-Dc-xVd" secondAttribute="leading" constant="40" id="zvj-QR-vtH"/>
                         </constraints>
                     </view>
@@ -235,6 +244,7 @@
                         <outlet property="errorMessageLabel" destination="egg-fQ-dyX" id="8SB-yy-Fah"/>
                         <outlet property="firstNameTextField" destination="hko-fh-rfT" id="F6d-ra-Tzz"/>
                         <outlet property="lastNameTextField" destination="fQp-6f-eQs" id="SNU-gE-XAe"/>
+                        <outlet property="profileImageView" destination="7ct-g3-rwX" id="Mkc-Vf-Xjl"/>
                         <outlet property="saveChangesButton" destination="3Zx-dD-on5" id="alA-iG-gPG"/>
                         <outlet property="usernameLabel" destination="6xh-Qg-IdG" id="wtL-2C-c6w"/>
                     </connections>

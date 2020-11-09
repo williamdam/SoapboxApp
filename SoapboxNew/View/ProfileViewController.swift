@@ -19,9 +19,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    var imagePicker:UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpElements();
 
         // Hide error label
         errorMessageLabel.alpha = 0
@@ -57,6 +61,13 @@ class ProfileViewController: UIViewController {
                     
                     // Set Email text field
                     self.emailTextField.text = (document.get("email") as! String)
+                
+                    
+                    //set profile image
+                    let url = URL(string: document.get("photoURL") as! String);
+                    ImageService.downloadImage(withURL: url!){
+                        image in self.profileImageView.image = image
+                    }
                 }
             }
         }
@@ -72,6 +83,24 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func setUpElements(){
+        
+        //hide error label
+        errorMessageLabel.alpha = 0;
+        //style text fields
+        Utilities.styleFilledButton(saveChangesButton)
+        
+        //set profile image details
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.borderColor = UIColor.black.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.clipsToBounds = true
+
+        
+    }
     
 
     // Check fields and return nil on success, or error message string
