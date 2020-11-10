@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController {
                     
                     //set profile image
                     let url = URL(string: document.get("photoURL") as! String);
-                    ImageService.downloadImage(withURL: url!){
+                    ImageService.getImage(withURL: url!){
                         image in self.profileImageView.image = image
                     }
                 }

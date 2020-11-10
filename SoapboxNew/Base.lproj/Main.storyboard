@@ -253,7 +253,51 @@
             </objects>
             <point key="canvasLocation" x="3552" y="-187"/>
         </scene>
-        <!--Home View Controller-->
+        <!--New Post View Controller-->
+        <scene sceneID="J0N-ZY-OSv">
+            <objects>
+                <viewController id="rim-7D-6YW" customClass="NewPostViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eWf-M1-OUA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's happening?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cgi-7I-44P">
+                                <rect key="frame" x="20" y="108" width="374" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="0z0-bt-nCp"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W8d-C4-MY5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W8d-C4-MY5" firstAttribute="trailing" secondItem="Cgi-7I-44P" secondAttribute="trailing" constant="20" id="a93-gL-bxL"/>
+                            <constraint firstItem="Cgi-7I-44P" firstAttribute="top" secondItem="W8d-C4-MY5" secondAttribute="top" constant="20" id="hht-fg-YoD"/>
+                            <constraint firstItem="Cgi-7I-44P" firstAttribute="leading" secondItem="W8d-C4-MY5" secondAttribute="leading" constant="20" id="lYc-Iq-bii"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="e2b-ae-y6c">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="Y0b-Il-jvJ">
+                            <connections>
+                                <action selector="postButtonPressed:" destination="rim-7D-6YW" id="55h-oi-jze"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="newPostButton" destination="Y0b-Il-jvJ" id="8GG-UN-1oI"/>
+                        <outlet property="textView" destination="Cgi-7I-44P" id="8F1-rW-6Gm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9IO-pP-8rb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3551" y="548"/>
+        </scene>
+        <!--Shouts-->
         <scene sceneID="ssu-u8-SfI">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="Imj-sD-e0T" customClass="HomeViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
@@ -267,31 +311,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ejl-qP-tWN">
-                                <rect key="frame" x="20" y="64" width="374" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ejl-qP-tWN">
+                                <rect key="frame" x="20" y="218" width="374" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQY-Pp-yWJ" userLabel="Location button">
-                                        <rect key="frame" x="0.0" y="13" width="36" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="USd-9T-eld"/>
-                                            <constraint firstAttribute="width" constant="36" id="XFV-dO-fy8"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="location" catalog="system"/>
-                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="uPf-D0-9GW">
-                                        <rect key="frame" x="36" y="0.0" width="302" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-y0-kQR" userLabel="User Profile button">
-                                        <rect key="frame" x="338" y="13.5" width="36" height="33.5"/>
-                                        <state key="normal" backgroundImage="person" catalog="system"/>
-                                        <connections>
-                                            <segue destination="eKA-Jp-x9A" kind="show" id="A5Z-KO-vfo"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7gm-y0-kQR" firstAttribute="height" secondItem="cQY-Pp-yWJ" secondAttribute="height" id="VMf-Nf-caI"/>
-                                    <constraint firstItem="7gm-y0-kQR" firstAttribute="width" secondItem="cQY-Pp-yWJ" secondAttribute="width" id="rQS-ZI-r7d"/>
                                     <constraint firstAttribute="height" constant="60" id="u6k-uE-2Rq"/>
                                 </constraints>
                             </stackView>
@@ -306,6 +333,24 @@
                             <constraint firstItem="Me2-rI-mPY" firstAttribute="centerY" secondItem="NFs-PT-2wt" secondAttribute="centerY" id="xwP-iI-565"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Shouts" id="gF0-vH-S8J" userLabel="Home">
+                        <barButtonItem key="leftBarButtonItem" title="Location" image="location" catalog="system" id="4w2-Ln-JSB"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Post" image="plus" catalog="system" id="KpU-6o-kMo">
+                                <connections>
+                                    <segue destination="rim-7D-6YW" kind="show" id="ZUv-5n-uvi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Profile" image="person" catalog="system" id="W6r-UK-wlb">
+                                <connections>
+                                    <segue destination="eKA-Jp-x9A" kind="show" id="wME-aZ-xbd"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGR-SE-wzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,6 +493,7 @@
         <image name="blank_profile" width="673" height="673"/>
         <image name="location" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="soapbox-logo" width="1200" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
