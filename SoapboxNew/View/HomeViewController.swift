@@ -13,10 +13,10 @@ import CoreLocation
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
-    var username:String?
+    var currentUsername = ""
     var userLatitude = 0.0
     var userLongitude = 0.0
-    var shoutsText:String = ""
+    var shoutsText = ""
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
@@ -47,9 +47,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     print(document.get("message") ?? "")
                     print(document.get("latitude") ?? "")
                     print(document.get("longtitude") ?? "")
+                    
+                    let thisUsername:String = document.get("username") as! String
+                    let thisMessage:String = document.get("message") as! String
+                    self.shoutsText += thisUsername
+                    self.shoutsText += ": "
+                    self.shoutsText += thisMessage
+                    self.shoutsText += "\n"
                 }
+                print(self.shoutsText)
             }
         }
+        
+        
         
         // Get Firebase uid
         let userID = Auth.auth().currentUser!.uid
@@ -77,7 +87,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     */
     
-    // Define delegate functio locationManager
+    // Define delegate function locationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for currentLocation in locations {
             userLatitude = currentLocation.coordinate.latitude
@@ -94,6 +104,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         // Initialize Firestore connection
         let db = Firestore.firestore()
+        var thisUsername = ""
         
         // Get Firebase uid
         let userID = Auth.auth().currentUser!.uid
@@ -101,19 +112,36 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         // Save username
         
-        // Save message
-        let message = messageTextField.text!
-        
-        db.collection("shouts").addDocument(data: ["uid":userID, "message":message, "latitude":userLatitude, "longitude":userLongitude]) { (error) in
-            
-            if error != nil {
-                // Show error message
-                self.showError("Error saving user data.")
-            } else{
-                // Go to Home Screen
-                self.transitionToHome()
-            }
+        db.collection("users").whereField("uid", isEqualTo: userID)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print(document.get("username") ?? "")
+                        self.currentUsername = document.get("username") as! String
+                        print("Current Username: " + self.currentUsername)
+                    }
+                    
+                    // Save message
+                    let message = self.messageTextField.text!
+                    
+                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude]) { (error) in
+                        
+                        if error != nil {
+                            // Show error message
+                            self.showError("Error saving user data.")
+                        } else {
+                            // Go to Home Screen
+                            self.transitionToHome()
+                        }
+                    }
+                    
+                    
+                }
         }
+        
+        
         
     }
     
