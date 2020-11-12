@@ -56,6 +56,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     self.shoutsText += "\n"
                 }
                 print(self.shoutsText)
+                self.mainTextArea.text = self.shoutsText
             }
         }
         
@@ -104,13 +105,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         // Initialize Firestore connection
         let db = Firestore.firestore()
-        var thisUsername = ""
         
         // Get Firebase uid
         let userID = Auth.auth().currentUser!.uid
         print("User ID: " + userID)
-        
-        // Save username
         
         db.collection("users").whereField("uid", isEqualTo: userID)
             .getDocuments() { (querySnapshot, err) in
