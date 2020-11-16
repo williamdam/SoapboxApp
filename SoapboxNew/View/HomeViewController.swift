@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     var userLatitude = 0.0
     var userLongitude = 0.0
     var shoutsText = ""
+    var distances = ""
+    
     
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
@@ -48,14 +50,30 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     print(document.get("latitude") ?? "")
                     print(document.get("longtitude") ?? "")
                     
-                    let thisUsername:String = document.get("username") as! String
-                    let thisMessage:String = document.get("message") as! String
-                    self.shoutsText += thisUsername
-                    self.shoutsText += ": "
-                    self.shoutsText += thisMessage
-                    self.shoutsText += "\n"
+                    
+                    let latitude = document.get("latitude") as! Double
+                    let longitude = document.get("longitude") as! Double
+                    
+                    
+                    
+                    let coordinate₀ = CLLocation(latitude: latitude, longitude: longitude)
+                    let coordinate₁ = CLLocation(latitude: self.userLatitude, longitude: self.userLongitude)
+
+                    let distanceInMeters = coordinate₀.distance(from: coordinate₁)
+                    let distanceInMiles =  distanceInMeters * 0.000621371192;
+                    
+                    if distanceInMiles < 1.0000 {
+                        let thisUsername:String = document.get("username") as! String
+                        let thisMessage:String = document.get("message") as! String
+                        self.shoutsText += thisUsername
+                        self.shoutsText += ": "
+                        self.shoutsText += thisMessage
+                        self.shoutsText += "\n"
+                        //let b: String = String(format: "%f", distanceInMiles)
+                        //self.distances += "(" + b + ")"
+                    }
                 }
-                print(self.shoutsText)
+                //print(self.shoutsText)
                 self.mainTextArea.text = self.shoutsText
             }
         }
@@ -78,15 +96,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 
-    /*
-    // MARK: - Navigation//
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // Define delegate function locationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
