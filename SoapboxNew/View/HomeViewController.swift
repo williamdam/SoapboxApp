@@ -13,16 +13,14 @@ import CoreLocation
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    
-
     var currentUsername = ""
     var photoURL = ""
     var userLatitude = 0.0
     var userLongitude = 0.0
     var posts = [Post]()
+    var currentDate = ""
+    var currentTime = ""
     
-    
-   
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
@@ -35,10 +33,40 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("DATE AND TIME")
+        let date = Date()
+        
+        print(date)
+        
+        let formattedDate = DateFormatter()
+        formattedDate.dateStyle = .short
+        print(formattedDate.string(from: date))
+        self.currentDate = formattedDate.string(from: date)
+        
+        let formattedTime = DateFormatter()
+        formattedTime.timeStyle = .short
+        print(formattedTime.string(from: date))
+        self.currentTime = formattedTime.string(from: date)
+        
         let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
 
         // Do any additional setup after loading the view.
+        // Get Firebase uid
+        let userID = Auth.auth().currentUser!.uid
+        print("User ID: " + userID)
+        
+        // Set location manager's delegate (self)
+        locationManager.delegate = self
+        
+        // Prompt user for location service permission
+        locationManager.requestWhenInUseAuthorization()
+        
+        // Start getting user's location only if authorized
+        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways){
+                locationManager.startUpdatingLocation()
+            }
+        
         
         // Initialize Firestore connection
         let db = Firestore.firestore()
@@ -89,18 +117,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         
         
         
-        // Get Firebase uid
-        let userID = Auth.auth().currentUser!.uid
-        print("User ID: " + userID)
-        
-        // Set location manager's delegate (self)
-        locationManager.delegate = self
-        
-        // Prompt user for location service permission
-        locationManager.requestWhenInUseAuthorization()
-        
-        // Start getting user's location
-        locationManager.startUpdatingLocation()
         
     }
     
@@ -116,6 +132,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             print("Latitude: " + String(currentLocation.coordinate.latitude))
             print("Longitude: " + String(currentLocation.coordinate.longitude))
         }
+    }
+    
+    @IBAction func locationButtonpressed(_ sender: UIButton) {
+        
+        self.transitionToHome()
+        print("Home screen reloaded.")
     }
     
     // Send button pressed
@@ -143,7 +165,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     // Save message
                     let message = self.messageTextField.text!
                     
-                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude]) { (error) in
+                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude, "date":self.currentDate, "time":self.currentTime]) { (error) in
                         
                         if error != nil {
                             // Show error message
