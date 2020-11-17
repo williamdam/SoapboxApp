@@ -33,21 +33,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("DATE AND TIME")
-        let date = Date()
-        
-        print(date)
-        
-        let formattedDate = DateFormatter()
-        formattedDate.dateStyle = .short
-        print(formattedDate.string(from: date))
-        self.currentDate = formattedDate.string(from: date)
-        
-        let formattedTime = DateFormatter()
-        formattedTime.timeStyle = .short
-        print(formattedTime.string(from: date))
-        self.currentTime = formattedTime.string(from: date)
-        
         let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
 
@@ -103,7 +88,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                         let thisMessage:String = document.get("message") as! String
                         let thisPhotoURL:String = document.get("photoURL") as! String
                         let thisID:String = document.get("uid") as! String
-                        self.posts.append(Post(id: thisID, author: thisUsername, text: thisMessage, photoURL: thisPhotoURL))
+                        let postDate:String = document.get("date") as! String
+                        let postTime:String = document.get("time") as! String
+                        
+                        self.posts.append(Post(id: thisID, author: thisUsername, text: thisMessage, photoURL: thisPhotoURL, date: postDate, time: postTime))
                     }
                 }
             }
@@ -142,6 +130,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     // Send button pressed
     @IBAction func sendButtonPressed(_ sender: UIButton) {
+        
+        print("DATE AND TIME")
+        let date = Date()
+        print(date)
+        
+        let formattedDate = DateFormatter()
+        formattedDate.dateStyle = .short
+        print(formattedDate.string(from: date))
+        self.currentDate = formattedDate.string(from: date)
+        
+        let formattedTime = DateFormatter()
+        formattedTime.timeStyle = .short
+        print(formattedTime.string(from: date))
+        self.currentTime = formattedTime.string(from: date)
         
         // Initialize Firestore connection
         let db = Firestore.firestore()

@@ -38,6 +38,8 @@ class PostTableViewCell: UITableViewCell {
         }
         usernameLabel.text = post.author
         postTextLabel.text = post.text
+        subtitleLabel.text = post.date + " at " + post.time
+
     }
     
 
