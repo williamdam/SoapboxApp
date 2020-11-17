@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cjh-rL-EaY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -295,20 +295,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNc-iS-byI">
                                         <rect key="frame" x="20" y="151" width="374" height="531"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No shouts to display" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WCF-3e-0Qw">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gD7-pB-pTi">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="531"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="WCF-3e-0Qw" firstAttribute="leading" secondItem="qNc-iS-byI" secondAttribute="leading" id="Qme-2x-cfT"/>
-                                            <constraint firstAttribute="trailing" secondItem="WCF-3e-0Qw" secondAttribute="trailing" id="Thw-8W-E6y"/>
-                                            <constraint firstItem="WCF-3e-0Qw" firstAttribute="top" secondItem="qNc-iS-byI" secondAttribute="top" id="VIZ-Fv-LZz"/>
-                                            <constraint firstAttribute="bottom" secondItem="WCF-3e-0Qw" secondAttribute="bottom" id="dVy-aX-x0U"/>
+                                            <constraint firstAttribute="trailing" secondItem="gD7-pB-pTi" secondAttribute="trailing" id="CCH-d5-gy8"/>
+                                            <constraint firstAttribute="bottom" secondItem="gD7-pB-pTi" secondAttribute="bottom" id="FT0-I5-q0e"/>
+                                            <constraint firstItem="gD7-pB-pTi" firstAttribute="top" secondItem="qNc-iS-byI" secondAttribute="top" id="Qei-mI-F6b"/>
+                                            <constraint firstItem="gD7-pB-pTi" firstAttribute="leading" secondItem="qNc-iS-byI" secondAttribute="leading" id="jda-XT-BTH"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8dY-MR-kTn" userLabel="Message Area">
@@ -337,9 +334,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="8dY-MR-kTn" firstAttribute="top" secondItem="qNc-iS-byI" secondAttribute="bottom" constant="10" id="EL3-59-hOB"/>
                                     <constraint firstAttribute="trailing" secondItem="8dY-MR-kTn" secondAttribute="trailing" constant="20" id="LLz-rO-Vf7"/>
-                                    <constraint firstItem="qNc-iS-byI" firstAttribute="top" secondItem="ejl-qP-tWN" secondAttribute="bottom" constant="10" id="RKv-Au-wj8"/>
                                     <constraint firstItem="ejl-qP-tWN" firstAttribute="leading" secondItem="l4A-Cy-PSS" secondAttribute="leading" constant="20" id="UIW-5u-8D4"/>
                                     <constraint firstAttribute="trailing" secondItem="qNc-iS-byI" secondAttribute="trailing" constant="20" id="Xs0-oD-syv"/>
                                     <constraint firstItem="qNc-iS-byI" firstAttribute="leading" secondItem="l4A-Cy-PSS" secondAttribute="leading" constant="20" id="vEB-E3-cAQ"/>
@@ -358,9 +353,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainTextArea" destination="WCF-3e-0Qw" id="haX-tr-hAV"/>
                         <outlet property="messageTextField" destination="3v6-13-l0d" id="pT4-Nr-x6X"/>
                         <outlet property="sendButton" destination="pkX-rr-QHS" id="3ve-9C-uMS"/>
+                        <outlet property="tableView" destination="gD7-pB-pTi" id="UMX-oE-g6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGR-SE-wzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -506,9 +501,6 @@
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="soapbox-logo" width="1200" height="400"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,24 +11,32 @@ import FirebaseAuth
 import FirebaseFirestore
 import CoreLocation
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+
+    
 
     var currentUsername = ""
+    var photoURL = ""
     var userLatitude = 0.0
     var userLongitude = 0.0
-    var shoutsText = ""
-    var distances = ""
+    var posts = [Post]()
     
     
+   
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var mainTextArea: UITextView!
     
+
     // Create constant for location manager
     let locationManager:CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "postCell")
 
         // Do any additional setup after loading the view.
         
@@ -65,17 +73,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     if distanceInMiles < 1.0000 {
                         let thisUsername:String = document.get("username") as! String
                         let thisMessage:String = document.get("message") as! String
-                        self.shoutsText += thisUsername
-                        self.shoutsText += ": "
-                        self.shoutsText += thisMessage
-                        self.shoutsText += "\n"
-                        //let b: String = String(format: "%f", distanceInMiles)
-                        //self.distances += "(" + b + ")"
+                        let thisPhotoURL:String = document.get("photoURL") as! String
+                        let thisID:String = document.get("uid") as! String
+                        self.posts.append(Post(id: thisID, author: thisUsername, text: thisMessage, photoURL: thisPhotoURL))
                     }
                 }
-                //print(self.shoutsText)
-                self.mainTextArea.text = self.shoutsText
             }
+            
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.tableFooterView = UIView()
+            
+            self.tableView.reloadData()
         }
         
         
@@ -127,13 +136,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     for document in querySnapshot!.documents {
                         print(document.get("username") ?? "")
                         self.currentUsername = document.get("username") as! String
+                        self.photoURL = document.get("photoURL") as! String
                         print("Current Username: " + self.currentUsername)
                     }
                     
                     // Save message
                     let message = self.messageTextField.text!
                     
-                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude]) { (error) in
+                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude]) { (error) in
                         
                         if error != nil {
                             // Show error message
@@ -164,4 +174,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let navigationController = UINavigationController (rootViewController: homeViewController)
         self.present(navigationController, animated: false, completion: nil)
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
+        cell.set(post: posts[indexPath.row])
+        return cell
+    }
+    
 }
+
+

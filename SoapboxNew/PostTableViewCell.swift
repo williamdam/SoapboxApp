@@ -19,6 +19,7 @@ class PostTableViewCell: UITableViewCell {
         // Initialization code
         
         //round the image profile view
+        profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
         profileImageView.clipsToBounds = true
     }
@@ -27,6 +28,16 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func set(post:Post){
+        let url = URL(string: post.photoURL)
+        ImageService.downloadImage(withURL: url! ){
+            image in self.profileImageView.image = image
+            
+        }
+        usernameLabel.text = post.author
+        postTextLabel.text = post.text
     }
     
 
