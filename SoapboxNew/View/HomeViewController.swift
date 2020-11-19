@@ -75,8 +75,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     let latitude = document.get("latitude") as! Double
                     let longitude = document.get("longitude") as! Double
                     
-                    
-                    
                     let coordinate₀ = CLLocation(latitude: latitude, longitude: longitude)
                     let coordinate₁ = CLLocation(latitude: self.userLatitude, longitude: self.userLongitude)
 
@@ -212,6 +210,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         cell.set(post: posts[indexPath.row])
         return cell
     }
+    
+
     
 }
 

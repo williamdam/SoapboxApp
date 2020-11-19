@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SoapboxNew.xcodeproj">
+      location = "group:/Users/williamdam/OneDrive - Oregon State University/CS467/SoapboxApp/Soapbox.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

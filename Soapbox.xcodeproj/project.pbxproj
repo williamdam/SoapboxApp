@@ -40,7 +40,7 @@
 		63DC353315EB25A2FF3C83C5 /* Pods-SoapboxNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapboxNew.release.xcconfig"; path = "Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew.release.xcconfig"; sourceTree = "<group>"; };
 		7C205D0730C8AD398E9D9EDC /* Pods-SoapboxNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoapboxNew.debug.xcconfig"; path = "Target Support Files/Pods-SoapboxNew/Pods-SoapboxNew.debug.xcconfig"; sourceTree = "<group>"; };
 		A49012422547909300AC0E5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A4B1E26E25473C5100745A88 /* SoapboxNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoapboxNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4B1E26E25473C5100745A88 /* Soapbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soapbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B1E27125473C5100745A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B1E27325473C5100745A88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A4B1E27525473C5100745A88 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		A4B1E26F25473C5100745A88 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4B1E26E25473C5100745A88 /* SoapboxNew.app */,
+				A4B1E26E25473C5100745A88 /* Soapbox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4B1E26D25473C5100745A88 /* SoapboxNew */ = {
+		A4B1E26D25473C5100745A88 /* Soapbox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4B1E28225473C5300745A88 /* Build configuration list for PBXNativeTarget "SoapboxNew" */;
+			buildConfigurationList = A4B1E28225473C5300745A88 /* Build configuration list for PBXNativeTarget "Soapbox" */;
 			buildPhases = (
 				098CDAE28488F04509DE7B30 /* [CP] Check Pods Manifest.lock */,
 				A4B1E26A25473C5100745A88 /* Sources */,
@@ -168,9 +168,9 @@
 			);
 			dependencies = (
 			);
-			name = SoapboxNew;
+			name = Soapbox;
 			productName = SoapboxNew;
-			productReference = A4B1E26E25473C5100745A88 /* SoapboxNew.app */;
+			productReference = A4B1E26E25473C5100745A88 /* Soapbox.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -187,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A4B1E26925473C5100745A88 /* Build configuration list for PBXProject "SoapboxNew" */;
+			buildConfigurationList = A4B1E26925473C5100745A88 /* Build configuration list for PBXProject "Soapbox" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -200,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4B1E26D25473C5100745A88 /* SoapboxNew */,
+				A4B1E26D25473C5100745A88 /* Soapbox */,
 			);
 		};
 /* End PBXProject section */
@@ -434,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.williamDam.SoapboxNew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.williamDam.Soapbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -454,7 +454,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.williamDam.SoapboxNew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.williamDam.Soapbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,7 +464,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4B1E26925473C5100745A88 /* Build configuration list for PBXProject "SoapboxNew" */ = {
+		A4B1E26925473C5100745A88 /* Build configuration list for PBXProject "Soapbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4B1E28025473C5300745A88 /* Debug */,
@@ -473,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4B1E28225473C5300745A88 /* Build configuration list for PBXNativeTarget "SoapboxNew" */ = {
+		A4B1E28225473C5300745A88 /* Build configuration list for PBXNativeTarget "Soapbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4B1E28325473C5300745A88 /* Debug */,
