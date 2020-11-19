@@ -34,8 +34,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Keyboard popup listener.  Calls function: keyboardWillShow()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
+        // Keyboard hide listener.  Calls function: KeyboardWillHide()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
@@ -216,6 +218,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         return cell
     }
     
+    // Function sets stack view bottom constraint to keyboard frame height
     @objc func keyboardWillShow(notification: NSNotification) {
         
         if let info = notification.userInfo {
@@ -230,22 +233,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         }
     }
     
+    // Function sets stack view bottom constraint to zero
     @objc func keyboardWillHide(notification: NSNotification) {
-        /*if let info = notification.userInfo {
-            
-            let rect:CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
-            self.view.layoutIfNeeded()
-            
-            UIView.animate(withDuration: 0.25, animations:  {
-                self.view.layoutIfNeeded()
-                self.stackViewBottomConstraint.constant = 0
-            })
-        }*/
+      
         UIView.animate(withDuration: 0.25, animations:  {
             self.view.layoutIfNeeded()
             self.stackViewBottomConstraint.constant = 0
         })
     }
+    
 }
 
 
