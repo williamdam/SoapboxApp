@@ -25,6 +25,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var mainTextArea: UITextView!
+    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
 
     // Create constant for location manager
@@ -32,6 +33,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
@@ -211,8 +216,36 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         return cell
     }
     
-
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let info = notification.userInfo {
+            
+            let rect:CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+            self.view.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.25, animations:  {
+                self.view.layoutIfNeeded()
+                self.stackViewBottomConstraint.constant = rect.height
+            })
+        }
+    }
     
+    @objc func keyboardWillHide(notification: NSNotification) {
+        /*if let info = notification.userInfo {
+            
+            let rect:CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+            self.view.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.25, animations:  {
+                self.view.layoutIfNeeded()
+                self.stackViewBottomConstraint.constant = 0
+            })
+        }*/
+        UIView.animate(withDuration: 0.25, animations:  {
+            self.view.layoutIfNeeded()
+            self.stackViewBottomConstraint.constant = 0
+        })
+    }
 }
 
 

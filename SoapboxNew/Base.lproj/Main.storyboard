@@ -11,7 +11,7 @@
         <!--Soapbox Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="WelcomeVC" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Soapbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,7 @@
         <!--User Login-->
         <scene sceneID="oyF-sc-FGC">
             <objects>
-                <viewController id="h6B-2e-br7" customClass="LoginViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="h6B-2e-br7" customClass="LoginViewController" customModule="Soapbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BLP-PA-3xL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
         <!--Profile View Controller-->
         <scene sceneID="5td-fW-NOv">
             <objects>
-                <viewController title="Profile View Controller" id="eKA-Jp-x9A" customClass="ProfileViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile View Controller" id="eKA-Jp-x9A" customClass="ProfileViewController" customModule="Soapbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x1q-Ro-bZn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +256,7 @@
         <!--Home View Controller-->
         <scene sceneID="ssu-u8-SfI">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="Imj-sD-e0T" customClass="HomeViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Imj-sD-e0T" customClass="HomeViewController" customModule="Soapbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFs-PT-2wt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,11 +339,12 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="8dY-MR-kTn" secondAttribute="trailing" constant="20" id="LLz-rO-Vf7"/>
+                                    <constraint firstAttribute="bottom" secondItem="8dY-MR-kTn" secondAttribute="bottom" id="TZa-uW-ve7"/>
                                     <constraint firstItem="ejl-qP-tWN" firstAttribute="leading" secondItem="l4A-Cy-PSS" secondAttribute="leading" constant="20" id="UIW-5u-8D4"/>
                                     <constraint firstAttribute="trailing" secondItem="qNc-iS-byI" secondAttribute="trailing" constant="20" id="Xs0-oD-syv"/>
-                                    <constraint firstItem="8dY-MR-kTn" firstAttribute="top" secondItem="qNc-iS-byI" secondAttribute="bottom" constant="20" id="crh-1r-1sx"/>
+                                    <constraint firstItem="8dY-MR-kTn" firstAttribute="top" secondItem="qNc-iS-byI" secondAttribute="bottom" constant="10" id="crh-1r-1sx"/>
                                     <constraint firstItem="qNc-iS-byI" firstAttribute="leading" secondItem="l4A-Cy-PSS" secondAttribute="leading" constant="20" id="vEB-E3-cAQ"/>
-                                    <constraint firstItem="qNc-iS-byI" firstAttribute="top" secondItem="ejl-qP-tWN" secondAttribute="bottom" constant="20" id="w5w-tr-lxy"/>
+                                    <constraint firstItem="qNc-iS-byI" firstAttribute="top" secondItem="ejl-qP-tWN" secondAttribute="bottom" constant="10" id="w5w-tr-lxy"/>
                                     <constraint firstItem="8dY-MR-kTn" firstAttribute="leading" secondItem="l4A-Cy-PSS" secondAttribute="leading" constant="20" id="xP3-e8-K8d"/>
                                     <constraint firstAttribute="trailing" secondItem="ejl-qP-tWN" secondAttribute="trailing" constant="20" id="z77-8M-F5s"/>
                                 </constraints>
@@ -361,6 +362,7 @@
                     <connections>
                         <outlet property="messageTextField" destination="3v6-13-l0d" id="pT4-Nr-x6X"/>
                         <outlet property="sendButton" destination="pkX-rr-QHS" id="3ve-9C-uMS"/>
+                        <outlet property="stackViewBottomConstraint" destination="H9W-Fq-Yoc" id="fe3-JI-GP1"/>
                         <outlet property="tableView" destination="gD7-pB-pTi" id="UMX-oE-g6E"/>
                     </connections>
                 </viewController>
@@ -371,7 +373,7 @@
         <!--New User-->
         <scene sceneID="WiC-Uk-nFR">
             <objects>
-                <viewController id="MAP-OR-1jY" customClass="SignupViewController" customModule="SoapboxNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MAP-OR-1jY" customClass="SignupViewController" customModule="Soapbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="43B-uT-5pd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
