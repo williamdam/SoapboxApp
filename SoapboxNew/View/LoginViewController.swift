@@ -12,20 +12,42 @@ import FirebaseFirestore
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var formStackView: UIStackView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var loginButton: UIButton!
-    
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Swipe up anywhere on screen to dismiss keyboard
+        scrollView.keyboardDismissMode = .onDrag
+        
+        // Keyboard popup listener.  Calls function: keyboardWillShow()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        // Keyboard hide listener.  Calls function: KeyboardWillHide()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // Add stack view as subview to scroll view
+        self.scrollView.addSubview(formStackView)
+        
+        // Constraints to be added in code
+        self.formStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Bind stack view at all sides to scroll view
+        self.formStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 20.0).isActive = true
+        self.formStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: 20.0).isActive = true
+        self.formStackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 20.0).isActive = true
+        self.formStackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+        
+        // Set width of stack view to scroll view
+        self.formStackView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, constant: -40.0).isActive = true
+        
         setUpElements()
     }
     
@@ -40,7 +62,30 @@ class LoginViewController: UIViewController {
         
     }
     
-
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let info = notification.userInfo {
+            
+            let rect:CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+            self.view.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.25, animations:  {
+                self.view.layoutIfNeeded()
+                self.scrollViewBottomConstraint.constant = rect.height
+                
+                
+            })
+        }
+    }
+    
+    // Function sets stack view bottom constraint to zero
+    @objc func keyboardWillHide(notification: NSNotification) {
+      
+        UIView.animate(withDuration: 0.25, animations:  {
+            self.view.layoutIfNeeded()
+            self.scrollViewBottomConstraint.constant = 0
+        })
+    }
     
     @IBAction func LoginButtonPressed(_ sender: UIButton) {
         

@@ -33,14 +33,11 @@ class SignupViewController: UIViewController {
     // Scroll view bottom constraint
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Tap anywhere to dismiss keyboard
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        // Swipe up anywhere on screen to dismiss keyboard
+        scrollView.keyboardDismissMode = .onDrag
         
         // Keyboard popup listener.  Calls function: keyboardWillShow()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
