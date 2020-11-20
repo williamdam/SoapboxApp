@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		305E1827255A10D0002FC3AD /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E1826255A10D0002FC3AD /* NewPostViewController.swift */; };
 		306D469D25634E3C00B87F58 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D469C25634E3C00B87F58 /* Post.swift */; };
 		309D77842559BB8700CF56EF /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309D77832559BB8700CF56EF /* ImageService.swift */; };
 		309D778A2559D44300CF56EF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309D77882559D44300CF56EF /* PostTableViewCell.swift */; };
@@ -30,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		0537CE5C8EFD5DCB3AA4228A /* Pods_SoapboxNew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoapboxNew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		305E1826255A10D0002FC3AD /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		306D469C25634E3C00B87F58 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		309D77832559BB8700CF56EF /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		309D77882559D44300CF56EF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				A4B1E28C25473FC000745A88 /* LoginViewController.swift */,
 				A4B1E2922547400600745A88 /* HomeViewController.swift */,
 				30FE9154254CCFFD0035F4EA /* ProfileViewController.swift */,
-				305E1826255A10D0002FC3AD /* NewPostViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,7 +270,6 @@
 				A4B1E27225473C5100745A88 /* AppDelegate.swift in Sources */,
 				306D469D25634E3C00B87F58 /* Post.swift in Sources */,
 				A4B1E28925473F9300745A88 /* SignupViewController.swift in Sources */,
-				305E1827255A10D0002FC3AD /* NewPostViewController.swift in Sources */,
 				A4B1E28D25473FC000745A88 /* LoginViewController.swift in Sources */,
 				309D77842559BB8700CF56EF /* ImageService.swift in Sources */,
 				A4B1E2932547400600745A88 /* HomeViewController.swift in Sources */,

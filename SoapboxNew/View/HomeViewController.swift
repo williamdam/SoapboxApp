@@ -1,6 +1,6 @@
 //
 //  HomeViewController.swift
-//  SoapboxNew
+//  Soapbox
 //
 //  Created by william dam on 10/26/20.
 //
@@ -24,20 +24,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var mainTextArea: UITextView!
     @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
-
     // Create constant for location manager
     let locationManager:CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        // Tap anywhere to dismiss keyboard
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        // Swipe up anywhere on screen to dismiss keyboard
+        tableView.keyboardDismissMode = .onDrag
         
         // Keyboard popup listener.  Calls function: keyboardWillShow()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -48,7 +45,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
 
-        // Do any additional setup after loading the view.
         // Get Firebase uid
         let userID = Auth.auth().currentUser!.uid
         print("User ID: " + userID)
@@ -63,7 +59,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways){
                 locationManager.startUpdatingLocation()
             }
-        
         
         // Initialize Firestore connection
         let db = Firestore.firestore()
@@ -83,11 +78,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     print(document.get("latitude") ?? "")
                     print(document.get("longtitude") ?? "")
                     
+                    let shoutLatitude = document.get("latitude") as! Double
+                    let shoutLongitude = document.get("longitude") as! Double
                     
-                    let latitude = document.get("latitude") as! Double
-                    let longitude = document.get("longitude") as! Double
-                    
-                    let coordinate₀ = CLLocation(latitude: latitude, longitude: longitude)
+                    let coordinate₀ = CLLocation(latitude: shoutLatitude, longitude: shoutLongitude)
                     let coordinate₁ = CLLocation(latitude: self.userLatitude, longitude: self.userLongitude)
 
                     let distanceInMeters = coordinate₀.distance(from: coordinate₁)
@@ -114,17 +108,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             
             self.scrollToBottom()
 
-            
         }
-
-        
-        
-        
-        
         
     }
-    
-
     
     // Define delegate function locationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -150,14 +136,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         print("DATE AND TIME")
         let date = Date()
         print(date)
+        
+        // Get Unix time (seconds) since 00:00:00 UTC on 1 January 1970
         let epochTime = NSDate().timeIntervalSince1970
         print(epochTime)
         
+        // Set current date in readable format
         let formattedDate = DateFormatter()
         formattedDate.dateStyle = .short
         print(formattedDate.string(from: date))
         self.currentDate = formattedDate.string(from: date)
         
+        // Set current time in readable format
         let formattedTime = DateFormatter()
         formattedTime.timeStyle = .short
         print(formattedTime.string(from: date))
@@ -166,44 +156,50 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         // Initialize Firestore connection
         let db = Firestore.firestore()
         
-        // Get Firebase uid
+        // Get user's Firebase uid
         let userID = Auth.auth().currentUser!.uid
         print("User ID: " + userID)
         
+        // Post new shout to message board
         db.collection("users").whereField("uid", isEqualTo: userID)
             .getDocuments() { (querySnapshot, err) in
+                
                 if let err = err {
                     print("Error getting documents: \(err)")
-                } else {
+                }
+                else {
+                    
+                    // Save username and profile photo to variables
                     for document in querySnapshot!.documents {
-                        print(document.get("username") ?? "")
                         self.currentUsername = document.get("username") as! String
                         self.photoURL = document.get("photoURL") as! String
                         print("Current Username: " + self.currentUsername)
                     }
                     
-                    // Save message
+                    // Save message to this variable
                     let message = self.messageTextField.text!
                     
+                    // Post message.  Add Firestore document with data below.
                     db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude, "date":self.currentDate, "time":self.currentTime, "epochTime":epochTime]) { (error) in
                         
+                        // Error handling
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data.")
-                        } else {
+                        }
+                        else {
                             // Go to Home Screen
                             self.transitionToHome()
                         }
+                        
                     }
-                    
                     
                 }
         }
         
-        
-        
-    }
+    }   // End IBAction sendButtonPressed
     
+    // Error handling function
     func showError(_ message: String) {
         // errorLabel.alpha = 1
         // errorLabel.text = message
@@ -255,6 +251,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         })
     }
     
+    // Function scrolls tableView to bottom message
     func scrollToBottom(){
             DispatchQueue.main.async {
                 let indexPath = IndexPath(row: self.posts.count-1, section: 0)
