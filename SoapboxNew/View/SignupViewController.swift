@@ -12,7 +12,16 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class SignupViewController: UIViewController {
-
+    
+    // Outlets to Scroll View and Stack View
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var formStackView: UIStackView!
+    
+    // Outlets to Form Fields
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var tapToChangeButton: UIButton!
+    var imagePicker:UIImagePickerController!
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -21,15 +30,23 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    @IBOutlet weak var tapToChangeButton: UIButton!
-    var imagePicker:UIImagePickerController!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Add stack view as subview to scroll view
+        self.scrollView.addSubview(formStackView)
+        
+        // Constraints to be added in code
+        self.formStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Bind stack view at all sides to scroll view
+        self.formStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 20.0).isActive = true
+        self.formStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: 20.0).isActive = true
+        self.formStackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
+        self.formStackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+        
+        // Set width of stack view to scroll view
+        self.formStackView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, constant: -40.0).isActive = true
         
         setUpElements()
     }
