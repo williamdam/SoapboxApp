@@ -16,6 +16,7 @@ class SignupViewController: UIViewController {
     // Outlets to Scroll View and Stack View
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var formStackView: UIStackView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     // Outlets to Form Fields
     @IBOutlet weak var profileImageView: UIImageView!
@@ -29,9 +30,6 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
-    // Scroll view bottom constraint
-    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +61,9 @@ class SignupViewController: UIViewController {
         setUpElements()
     }
     
-    func setUpElements(){
+    func setUpElements() {
         
-        //hide error label
+        // hide error label
         errorLabel.alpha = 0;
         //style text fields
         Utilities.styleFilledButton(signUpButton)
