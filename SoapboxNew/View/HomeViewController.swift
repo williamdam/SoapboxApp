@@ -72,7 +72,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         let shoutsDb = db.collection("shouts")
         
         // Query all documents from "shouts" collection
-        shoutsDb.getDocuments() { (querySnapshot, err) in
+        shoutsDb.order(by: "epochTime").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -146,6 +146,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         print("DATE AND TIME")
         let date = Date()
         print(date)
+        let epochTime = NSDate().timeIntervalSince1970
+        print(epochTime)
         
         let formattedDate = DateFormatter()
         formattedDate.dateStyle = .short
@@ -179,7 +181,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     // Save message
                     let message = self.messageTextField.text!
                     
-                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude, "date":self.currentDate, "time":self.currentTime]) { (error) in
+                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude, "date":self.currentDate, "time":self.currentTime, "epochTime":epochTime]) { (error) in
                         
                         if error != nil {
                             // Show error message
