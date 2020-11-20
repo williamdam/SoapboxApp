@@ -111,6 +111,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             self.tableView.tableFooterView = UIView()
             
             self.tableView.reloadData()
+            
+            self.scrollToBottom()
+
+            
         }
 
         
@@ -250,6 +254,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             self.stackViewBottomConstraint.constant = 0
         })
     }
+    
+    func scrollToBottom(){
+            DispatchQueue.main.async {
+                let indexPath = IndexPath(row: self.posts.count-1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+        }
     
 }
 
