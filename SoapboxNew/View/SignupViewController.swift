@@ -30,8 +30,23 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    // Scroll view bottom constraint
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Tap anywhere to dismiss keyboard
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        // Keyboard popup listener.  Calls function: keyboardWillShow()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        // Keyboard hide listener.  Calls function: KeyboardWillHide()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         // Add stack view as subview to scroll view
         self.scrollView.addSubview(formStackView)
@@ -200,6 +215,32 @@ class SignupViewController: UIViewController {
         let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController)as! HomeViewController
         let navigationController = UINavigationController (rootViewController: homeViewController)
         self.present(navigationController, animated: false, completion: nil)
+    }
+    
+    // Function sets stack view bottom constraint to keyboard frame height
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let info = notification.userInfo {
+            
+            let rect:CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+            self.view.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.25, animations:  {
+                self.view.layoutIfNeeded()
+                self.scrollViewBottomConstraint.constant = rect.height
+                
+                
+            })
+        }
+    }
+    
+    // Function sets stack view bottom constraint to zero
+    @objc func keyboardWillHide(notification: NSNotification) {
+      
+        UIView.animate(withDuration: 0.25, animations:  {
+            self.view.layoutIfNeeded()
+            self.scrollViewBottomConstraint.constant = 0
+        })
     }
     
 }

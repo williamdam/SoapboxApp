@@ -418,22 +418,22 @@
                                             <constraint firstAttribute="height" constant="40" id="lMv-1T-06h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="given-name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNY-yG-HK2">
                                         <rect key="frame" x="0.0" y="270" width="115" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06A-9g-4MA">
                                         <rect key="frame" x="0.0" y="330" width="115" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qmf-S4-cqk">
                                         <rect key="frame" x="0.0" y="390" width="115" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="join" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdz-ln-hUh">
                                         <rect key="frame" x="0.0" y="450" width="115" height="50"/>
@@ -485,6 +485,7 @@
                         <outlet property="passwordTextField" destination="Qmf-S4-cqk" id="tan-4e-Qv8"/>
                         <outlet property="profileImageView" destination="KxV-Tg-m5g" id="IvN-W9-1j5"/>
                         <outlet property="scrollView" destination="o6k-ja-fVJ" id="a59-0a-VgX"/>
+                        <outlet property="scrollViewBottomConstraint" destination="6h5-XJ-6xa" id="9tC-fY-MzR"/>
                         <outlet property="signUpButton" destination="Kdz-ln-hUh" id="CXA-b1-25l"/>
                         <outlet property="tapToChangeButton" destination="Zkl-QU-M3c" id="3rn-mL-ag6"/>
                         <outlet property="usernameTextField" destination="EiD-5m-cRC" id="xTw-hS-RHV"/>
