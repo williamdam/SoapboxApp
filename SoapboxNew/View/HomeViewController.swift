@@ -34,6 +34,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Tap anywhere to dismiss keyboard
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         // Keyboard popup listener.  Calls function: keyboardWillShow()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -63,7 +68,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         // Initialize Firestore connection
         let db = Firestore.firestore()
         
-        // Create a reference to the shouts collection
+        // Create a reference to the "shouts" collection
         let shoutsDb = db.collection("shouts")
         
         // Query all documents from "shouts" collection
@@ -107,6 +112,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             
             self.tableView.reloadData()
         }
+
+        
         
         
         
