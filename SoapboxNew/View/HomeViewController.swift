@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
 
         // Get Firebase uid
         let userID = Auth.auth().currentUser!.uid
-        print("User ID: " + userID)
+        //print("User ID: " + userID)
         
         // Set location manager's delegate (self)
         locationManager.delegate = self
@@ -63,23 +63,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         // Initialize Firestore connection
         let db = Firestore.firestore()
         
-        // Create a reference to the "shouts" collection
-        let shoutsDb = db.collection("shouts")
         
-        // Query all documents from "shouts" collection
-        shoutsDb.order(by: "epochTime").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    print(document.get("uid") ?? "")
-                    print(document.get("message") ?? "")
-                    print(document.get("latitude") ?? "")
-                    print(document.get("longtitude") ?? "")
-                    
-                    let shoutLatitude = document.get("latitude") as! Double
-                    let shoutLongitude = document.get("longitude") as! Double
+        db.collection("shouts").order(by: "epochTime").addSnapshotListener { querySnapshot, error in
+                
+            guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+            snapshot.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    print("New post: \(diff.document.data())")
+                    let shoutLatitude = diff.document.get("latitude") as! Double
+                    let shoutLongitude = diff.document.get("longitude") as! Double
                     
                     let coordinate₀ = CLLocation(latitude: shoutLatitude, longitude: shoutLongitude)
                     let coordinate₁ = CLLocation(latitude: self.userLatitude, longitude: self.userLongitude)
@@ -88,15 +83,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     let distanceInMiles =  distanceInMeters * 0.000621371192;
                     
                     if distanceInMiles < 1.0000 {
-                        let thisUsername:String = document.get("username") as! String
-                        let thisMessage:String = document.get("message") as! String
-                        let thisPhotoURL:String = document.get("photoURL") as! String
-                        let thisID:String = document.get("uid") as! String
-                        let postDate:String = document.get("date") as! String
-                        let postTime:String = document.get("time") as! String
+                        let thisUsername:String = diff.document.get("username") as! String
+                        let thisMessage:String = diff.document.get("message") as! String
+                        let thisPhotoURL:String = diff.document.get("photoURL") as! String
+                        let thisID:String = diff.document.get("uid") as! String
+                        let postDate:String = diff.document.get("date") as! String
+                        let postTime:String = diff.document.get("time") as! String
                         
                         self.posts.append(Post(id: thisID, author: thisUsername, text: thisMessage, photoURL: thisPhotoURL, date: postDate, time: postTime))
                     }
+                }
+                if (diff.type == .modified) {
+                    print("Modified post: \(diff.document.data())")
+                }
+                if (diff.type == .removed) {
+                    print("Removed post: \(diff.document.data())")
                 }
             }
             
@@ -107,8 +108,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             self.tableView.reloadData()
             
             self.scrollToBottom()
-
+            
         }
+        
         
     }
     
@@ -118,39 +120,39 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
             userLatitude = currentLocation.coordinate.latitude
             userLongitude = currentLocation.coordinate.longitude
             
-            print("\(String(describing: index)): \(currentLocation)")
-            print("Latitude: " + String(currentLocation.coordinate.latitude))
-            print("Longitude: " + String(currentLocation.coordinate.longitude))
+            //print("\(String(describing: index)): \(currentLocation)")
+            //print("Latitude: " + String(currentLocation.coordinate.latitude))
+            //print("Longitude: " + String(currentLocation.coordinate.longitude))
         }
     }
     
     @IBAction func locationButtonpressed(_ sender: UIButton) {
         
         self.transitionToHome()
-        print("Home screen reloaded.")
+        //print("Home screen reloaded.")
     }
     
     // Send button pressed
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         
-        print("DATE AND TIME")
+        //print("DATE AND TIME")
         let date = Date()
-        print(date)
+        //print(date)
         
         // Get Unix time (seconds) since 00:00:00 UTC on 1 January 1970
         let epochTime = NSDate().timeIntervalSince1970
-        print(epochTime)
+        //print(epochTime)
         
         // Set current date in readable format
         let formattedDate = DateFormatter()
         formattedDate.dateStyle = .short
-        print(formattedDate.string(from: date))
+        //print(formattedDate.string(from: date))
         self.currentDate = formattedDate.string(from: date)
         
         // Set current time in readable format
         let formattedTime = DateFormatter()
         formattedTime.timeStyle = .short
-        print(formattedTime.string(from: date))
+        //print(formattedTime.string(from: date))
         self.currentTime = formattedTime.string(from: date)
         
         // Initialize Firestore connection
@@ -158,7 +160,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         
         // Get user's Firebase uid
         let userID = Auth.auth().currentUser!.uid
-        print("User ID: " + userID)
+        //print("User ID: " + userID)
         
         // Post new shout to message board
         db.collection("users").whereField("uid", isEqualTo: userID)
@@ -173,7 +175,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     for document in querySnapshot!.documents {
                         self.currentUsername = document.get("username") as! String
                         self.photoURL = document.get("photoURL") as! String
-                        print("Current Username: " + self.currentUsername)
+                        //print("Current Username: " + self.currentUsername)
                     }
                     
                     // Save message to this variable
@@ -188,8 +190,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                             self.showError("Error saving user data.")
                         }
                         else {
+                            
+                            self.messageTextField.text = ""
                             // Go to Home Screen
-                            self.transitionToHome()
+                            //self.transitionToHome()
                         }
                         
                     }
