@@ -72,12 +72,6 @@ class ProfileViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     
-                    // Print statements for debug
-                    print("\(document.documentID) => \(document.data())")
-                    print(document.get("firstname") ?? "")
-                    print(document.get("lastname") ?? "")
-                    print(document.get("email") ?? "")
-                    
                     // Set Username text label
                     self.usernameLabel.text = ((document.get("username") ?? "") as! String)
                     
