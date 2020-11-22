@@ -13,6 +13,7 @@ import CoreLocation
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    var userID = ""
     var currentUsername = ""
     var photoURL = ""
     var userLatitude = 0.0
@@ -20,7 +21,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     var posts = [Post]()
     var currentDate = ""
     var currentTime = ""
-    var userID = ""
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
