@@ -61,9 +61,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         locationManager.requestWhenInUseAuthorization()
         
         // Start getting user's location only if authorized
-        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways){
-                locationManager.startUpdatingLocation()
-            }
+        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            locationManager.startUpdatingLocation()
+        }
         
         // Initialize Firestore connection
         let db = Firestore.firestore()
@@ -87,7 +87,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     let distanceInMeters = coordinate₀.distance(from: coordinate₁)
                     let distanceInMiles =  distanceInMeters * 0.000621371192;
                     
-                    if distanceInMiles < 1.0000 {
+                    // Get seconds elapsed from time of each post
+                    let ageOfPost = NSDate().timeIntervalSince1970 - (diff.document.get("epochTime") as! Double)
+                    
+                    // Get posts within 1 mile radius and < 24 hours old
+                    if distanceInMiles < 1.0000 && ageOfPost < 86400 {
                         let thisUsername:String = diff.document.get("username") as! String
                         let thisMessage:String = diff.document.get("message") as! String
                         let thisPhotoURL:String = diff.document.get("photoURL") as! String
@@ -142,7 +146,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         
         // Get Unix time (seconds) since 00:00:00 UTC on 1 January 1970
         let epochTime = NSDate().timeIntervalSince1970
-        //print(epochTime)
         
         // Set current date in readable format
         let formattedDate = DateFormatter()
