@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     var posts = [Post]()
     var currentDate = ""
     var currentTime = ""
+    var userID = ""
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
@@ -44,9 +45,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         
         let cellNib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView()
 
         // Get Firebase uid
-        let userID = Auth.auth().currentUser!.uid
+        userID = Auth.auth().currentUser!.uid
         //print("User ID: " + userID)
         
         // Set location manager's delegate (self)
@@ -63,7 +68,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         // Initialize Firestore connection
         let db = Firestore.firestore()
         
-        
+        // Start listening for changes in shouts collection
         db.collection("shouts").order(by: "epochTime").addSnapshotListener { querySnapshot, error in
                 
             guard let snapshot = querySnapshot else {
@@ -101,12 +106,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                 }
             }
             
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
-            self.tableView.tableFooterView = UIView()
             
             self.tableView.reloadData()
-            
             self.scrollToBottom()
             
         }
@@ -116,20 +117,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     // Define delegate function locationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         for currentLocation in locations {
             userLatitude = currentLocation.coordinate.latitude
             userLongitude = currentLocation.coordinate.longitude
-            
-            //print("\(String(describing: index)): \(currentLocation)")
-            //print("Latitude: " + String(currentLocation.coordinate.latitude))
-            //print("Longitude: " + String(currentLocation.coordinate.longitude))
         }
+        
     }
     
-    @IBAction func locationButtonpressed(_ sender: UIButton) {
+    // Refresh button pressed.  Reload home screen.
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
         
-        self.transitionToHome()
-        //print("Home screen reloaded.")
+        self.tableView.reloadData()
+        self.scrollToBottom()
+        print("Home screen reloaded.")
     }
     
     // Send button pressed
@@ -158,10 +159,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         // Initialize Firestore connection
         let db = Firestore.firestore()
         
-        // Get user's Firebase uid
-        let userID = Auth.auth().currentUser!.uid
-        //print("User ID: " + userID)
-        
         // Post new shout to message board
         db.collection("users").whereField("uid", isEqualTo: userID)
             .getDocuments() { (querySnapshot, err) in
@@ -182,7 +179,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                     let message = self.messageTextField.text!
                     
                     // Post message.  Add Firestore document with data below.
-                    db.collection("shouts").addDocument(data: ["uid":userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude, "date":self.currentDate, "time":self.currentTime, "epochTime":epochTime]) { (error) in
+                    db.collection("shouts").addDocument(data: ["uid":self.userID, "username":self.currentUsername, "photoURL": self.photoURL, "message":message, "latitude":self.userLatitude, "longitude":self.userLongitude, "date":self.currentDate, "time":self.currentTime, "epochTime":epochTime]) { (error) in
                         
                         // Error handling
                         if error != nil {
@@ -211,6 +208,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         
     }
     
+    // Load home view controller (deprecated)
     func transitionToHome() {
         let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController)as! HomeViewController
         let navigationController = UINavigationController (rootViewController: homeViewController)
