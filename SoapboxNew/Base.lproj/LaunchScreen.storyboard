@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,29 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X70-dN-Cp5" userLabel="Label">
-                                <rect key="frame" x="40" y="429.5" width="334" height="37"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-sh-FnT">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="37"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-sV-kfW">
-                                <rect key="frame" x="-361" y="317" width="1200" height="100"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soapbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="AHq-Yg-S83">
+                                <rect key="frame" x="102" y="408" width="240" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Tq4-SI-Ty0"/>
+                                    <constraint firstAttribute="height" constant="80" id="8Di-7k-fQ5"/>
+                                    <constraint firstAttribute="width" constant="240" id="UVW-sa-2lh"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 0.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBM-5k-Ui2">
+                                <rect key="frame" x="165.5" y="508" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X70-dN-Cp5" secondAttribute="trailing" constant="40" id="5Vy-M9-TV9"/>
-                            <constraint firstItem="X70-dN-Cp5" firstAttribute="top" secondItem="gcb-sV-kfW" secondAttribute="bottom" constant="12.5" id="8eq-YC-ZOl"/>
-                            <constraint firstItem="X70-dN-Cp5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Xsq-0p-CIg"/>
-                            <constraint firstItem="gcb-sV-kfW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="32" id="iiR-V3-f5M"/>
-                            <constraint firstItem="X70-dN-Cp5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="reb-Sd-J3k"/>
+                            <constraint firstItem="WBM-5k-Ui2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="09j-3t-3q6"/>
+                            <constraint firstItem="WBM-5k-Ui2" firstAttribute="top" secondItem="AHq-Yg-S83" secondAttribute="bottom" constant="20" id="VaX-jQ-Wo4"/>
+                            <constraint firstItem="AHq-Yg-S83" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ir7-AA-gQD"/>
+                            <constraint firstItem="AHq-Yg-S83" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="15" id="uxX-og-n6P"/>
                         </constraints>
                     </view>
                 </viewController>
