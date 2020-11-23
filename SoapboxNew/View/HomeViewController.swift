@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     var posts = [Post]()
     var currentDate = ""
     var currentTime = ""
+    var numberOfPosts = 0
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
@@ -110,10 +111,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                 }
             }
             
+            self.numberOfPosts = self.posts.count
             
             self.tableView.reloadData()
             self.scrollToBottom()
             
+            // Debug comments
+            print("Number of posts")
+            print(self.posts.count)
         }
         
         
@@ -131,9 +136,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     
     // Refresh button pressed.  Reload home screen.
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        
-        self.tableView.reloadData()
-        self.scrollToBottom()
+        transitionToHome()
+        //self.tableView.reloadData()
+        //self.scrollToBottom()
         print("Home screen reloaded.")
     }
     
@@ -257,12 +262,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
     }
     
     // Function scrolls tableView to bottom message
-    func scrollToBottom(){
+    func scrollToBottom() {
+        if self.numberOfPosts > 0 {
             DispatchQueue.main.async {
                 let indexPath = IndexPath(row: self.posts.count-1, section: 0)
                 self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
         }
+    }
     
 }
 
