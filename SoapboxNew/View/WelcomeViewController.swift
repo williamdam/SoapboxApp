@@ -26,8 +26,9 @@ class WelcomeViewController: UIViewController {
             print("User already logged in.")
             
             // User is signed in. Show home screen
-            let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController)as! HomeViewController
+            let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
             let navigationController = UINavigationController (rootViewController: homeViewController)
+            navigationController.modalPresentationStyle = .fullScreen
             self.present(navigationController, animated: false, completion: nil)
           }
           else {

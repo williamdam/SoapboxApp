@@ -209,6 +209,7 @@ class SignupViewController: UIViewController {
     func transitionToHome() {
         let homeViewController = self.storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController)as! HomeViewController
         let navigationController = UINavigationController (rootViewController: homeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: false, completion: nil)
     }
     
