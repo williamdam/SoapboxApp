@@ -294,7 +294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="91" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-Cy-PSS">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ejl-qP-tWN" userLabel="Top Logo Area">
                                         <rect key="frame" x="20" y="0.0" width="374" height="60"/>
@@ -333,10 +333,10 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNc-iS-byI" userLabel="Shouts View">
-                                        <rect key="frame" x="20" y="151" width="374" height="531"/>
+                                        <rect key="frame" x="20" y="151" width="374" height="521"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gD7-pB-pTi">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="531"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="521"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -349,7 +349,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8dY-MR-kTn" userLabel="Message Area">
-                                        <rect key="frame" x="20" y="773" width="374" height="45"/>
+                                        <rect key="frame" x="20" y="763" width="374" height="45"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a message" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="3v6-13-l0d">
                                                 <rect key="frame" x="0.0" y="0.0" width="319" height="45"/>
@@ -392,7 +392,7 @@
                         <constraints>
                             <constraint firstItem="l4A-Cy-PSS" firstAttribute="leading" secondItem="NFs-PT-2wt" secondAttribute="leading" id="84R-h5-RPn"/>
                             <constraint firstItem="OEp-La-C64" firstAttribute="bottom" secondItem="l4A-Cy-PSS" secondAttribute="bottom" id="H9W-Fq-Yoc"/>
-                            <constraint firstItem="l4A-Cy-PSS" firstAttribute="top" secondItem="OEp-La-C64" secondAttribute="top" id="KOd-d3-r65"/>
+                            <constraint firstItem="l4A-Cy-PSS" firstAttribute="top" secondItem="OEp-La-C64" secondAttribute="top" constant="10" id="KOd-d3-r65"/>
                             <constraint firstAttribute="trailing" secondItem="l4A-Cy-PSS" secondAttribute="trailing" id="lH4-FZ-v6Y"/>
                         </constraints>
                     </view>
