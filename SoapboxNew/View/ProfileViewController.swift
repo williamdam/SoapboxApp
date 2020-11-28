@@ -114,16 +114,28 @@ class ProfileViewController: UIViewController {
         //style text fields
         Utilities.styleFilledButton(saveChangesButton)
         
-        //set profile image details
+        //set image details
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(imageTap)
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.masksToBounds = false
         profileImageView.layer.borderColor = UIColor.black.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
 
+        //instantiate image picker
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
         
     }
     
+    @objc func openImagePicker(_sender:Any){
+        //open Image Picker
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 
     // Check fields and return nil on success, or error message string
     func validateFields() -> String? {
@@ -155,6 +167,7 @@ class ProfileViewController: UIViewController {
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard let image = profileImageView.image else {return}
             
             // Initialize database
             let db = Firestore.firestore()
@@ -172,6 +185,23 @@ class ProfileViewController: UIViewController {
                         
                         let docID = document.documentID
                         let userDocument = db.collection("users").document(docID)
+                        
+                        // Upload the profile image to Firebase Storage
+                        self.uploadProfileImage(image) { url in
+                            if url != nil{
+                                
+                                // Create user profile in Firestore database
+                                userDocument.updateData(["photoURL":url!.absoluteString]) { (error) in
+                                    if error != nil {
+                                        // Show error message
+                                        self.showError("Error saving user data.")
+                                    }
+                                }
+                            }else{
+                                self.showError("Error saving user data.")
+                            }
+
+                        }
                         
                         userDocument.updateData([
                             "firstname": firstName,
@@ -201,6 +231,29 @@ class ProfileViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
+    func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storageRef = Storage.storage().reference().child("user/\(uid)")
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+
+        storageRef.putData(imageData, metadata: metaData) { metaData, error in
+            if error == nil, metaData != nil {
+
+                storageRef.downloadURL { url, error in
+                    completion(url)
+                    // success!
+                }
+                } else {
+                    // failed
+                    completion(nil)
+                }
+            }
+    }
+    
     // Function sets stack view bottom constraint to keyboard frame height
     @objc func keyboardWillShow(notification: NSNotification) {
         
@@ -227,4 +280,17 @@ class ProfileViewController: UIViewController {
         })
     }
     
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

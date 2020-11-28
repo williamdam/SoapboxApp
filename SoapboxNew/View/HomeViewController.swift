@@ -181,6 +181,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
                         self.currentUsername = document.get("username") as! String
                         self.photoURL = document.get("photoURL") as! String
                         //print("Current Username: " + self.currentUsername)
+                        
                     }
                     
                     // Save message to this variable
